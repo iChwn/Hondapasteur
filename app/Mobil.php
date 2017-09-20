@@ -1,0 +1,20 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Mobil extends Model
+{
+	protected $fillable = ['id','modell_id','nama_mobil', 'deskripsi', 'spesifikasi','cover','harga'];
+
+	public function modell()
+	{
+		return $this->belongsTo('App\Modell');
+	}
+
+	public function galeri()
+	{
+		return $this->belongsTo('App\Galeri');
+	}
+}
