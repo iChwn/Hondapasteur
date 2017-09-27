@@ -20,6 +20,7 @@ class CreateLeadersTable extends Migration
             $table->string('cover')->nullable();
             $table->string('link_fb');
             $table->string('link_google');
+            $table->string('testimoni');
             $table->timestamps();
         });
     }

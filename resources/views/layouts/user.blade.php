@@ -8,6 +8,8 @@
     <title>Honda Pasteur
     </title>
     <!-- Bootstrap Core CSS-->
+    <link href="{{asset('/css/dataTables.bootstrap.css')}}" rel="stylesheet">
+    
     <link href="{{asset('/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS-->
     <link href="{{asset('/frontend/css/universal.css')}}" rel="stylesheet">
@@ -26,8 +28,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button><a href="#page-top" class="navbar-brand page-scroll">
-            <!-- Text or Image logo--><img src="/img/" alt="Honda Pasteur" class="logo"><img src="img/logodark.png" alt="Honda Pasteur" class="logodark"></a>
+          </button><a href="{{ url('/guest') }}" class="navbar-brand page-scroll">
+            <!-- Text or Image logo--><img src="/img/" alt="Honda Pasteur" class="logodrak">{{-- <img src="img/logodark.png" alt="Honda Pasteur" class="logodark"> --}}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling-->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">

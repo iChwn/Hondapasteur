@@ -25,8 +25,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('potos', 'PotosController');
 	Route::resource('leaders', 'LeadersController');
 	Route::resource('perusahaans', 'PerusahaansController');
+	// Route::resource('testingadmin', 'TestingsController');
+	Route::resource('mesin', 'MesinsController');
 });
 
-Route::resource('show','GuestController');
+Route::resource('show','GuestsController');
 Route::resource('guest', 'GuestsController');
 Route::resource('testing', 'GuestsController@testing');
+Route::resource('about', 'GuestsController@about');
+Route::resource('service', 'GuestsController@services');
+Route::get('/model/{id}', array('as' => 'showperkategori', 'uses' =>'GuestsController@showperkategori'));

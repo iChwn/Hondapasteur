@@ -26,6 +26,13 @@
 		{!! $errors->first('link_google', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
+<div class="form-group{{ $errors->has('testiomni') ? ' has-error' : '' }}">
+	{!! Form::label('testimoni', 'Testimoni', ['class'=>'col-md-2 control-label']) !!}
+	<div class="col-md-4">
+		{!! Form::text('testimoni', null, ['class'=>'form-control', 'min'=>1]) !!}
+		{!! $errors->first('testimoni', '<p class="help-block">:message</p>') !!}
+	</div>
+</div>
 <div class="form-group{{ $errors->has('cover') ? ' has-error' : '' }}">
 	{!! Form::label('cover', 'Cover', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">

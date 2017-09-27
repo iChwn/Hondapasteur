@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
- 
+
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
@@ -11,6 +11,9 @@ use Yajra\Datatables\Datatables;
 use App\Modell;
 use App\Galeri;
 use App\Leader;
+use App\Poto;
+use App\Mobil;
+use App\Perusahaan;
 use Laratrust\LaratrustFacade as Laratrust;
 use Illuminate\Support\Str;
 use Session;
@@ -25,8 +28,18 @@ class LeadersController extends Controller
      */
     public function index(Request $request, Builder $htmlBuilder)
     {
+        $mobila = Mobil::orderBy('created_at','desc')->take(3)->get();
+        $potoa = Poto::orderBy('created_at','desc')->take(1)->get();
+        $poto = Poto::orderBy('created_at','desc')->take(3)->get();
+        $mobilsa = Mobil::orderBy('created_at','desc')->paginate(5);
+        $leader = Leader::orderBy('created_at','asc')->paginate(5);
+        $leadera = Leader::orderBy('created_at','asc')->paginate(1);
+        $modell = Modell::all();
+        $mobile = Mobil::all();
+        $perusahaan = Perusahaan::all();
+
         if ($request->ajax()) {
-            $leaders = Leader::select(['id','nama','jabatan','cover','link_fb','link_google']);
+            $leaders = Leader::select(['id','nama','jabatan','cover','link_fb','link_google','testimoni']);
             return Datatables::of($leaders)
             ->addColumn('cover', function($leader){
                 return '<img src="/img/'.$leader->cover. '" height="100px" width="200px">';
@@ -45,10 +58,11 @@ class LeadersController extends Controller
         ->addColumn(['data' => 'jabatan', 'name'=>'jabatan', 'title'=>'jabatan'])
         ->addColumn(['data' => 'link_fb', 'name'=>'link_fb', 'title'=>'Link FB'])
         ->addColumn(['data' => 'link_google', 'name'=>'link_google', 'title'=>'Link Google'])
+        ->addColumn(['data' => 'testimoni', 'name'=>'testimoni', 'title'=>'Testimoni'])
         ->addColumn(['data' => 'cover', 'name'=>'cover', 'title'=>'Cover'])
         ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, 
             'searchable'=>false]);
-        return view('leaders.index')->with(compact('html'));
+        return view('leaders.index')->with(compact('html','mobilsa','modell','mobila','leader','poto','potoa','mobile','perusahaan','leadera'));
     }
 
     /**
@@ -177,23 +191,23 @@ class LeadersController extends Controller
      */
     public function destroy($id)
     {
-         $leader = Leader::find($id);
+       $leader = Leader::find($id);
 // hapus cover lama, jika ada
-        if ($leader->cover) {
-            $old_cover = $leader->cover;
-            $filepath = public_path() . DIRECTORY_SEPARATOR . 'img'
-            . DIRECTORY_SEPARATOR . $leader->cover;
-            try {
-                File::delete($filepath);
-            } catch (FileNotFoundException $e) {
+       if ($leader->cover) {
+        $old_cover = $leader->cover;
+        $filepath = public_path() . DIRECTORY_SEPARATOR . 'img'
+        . DIRECTORY_SEPARATOR . $leader->cover;
+        try {
+            File::delete($filepath);
+        } catch (FileNotFoundException $e) {
 // File sudah dihapus/tidak ada
-            }
         }
-        $leader->delete();
-        Session::flash("flash_notification", [
-            "level"=>"success",
-            "message"=>"leader berhasil dihapus"
-            ]);
-        return redirect()->route('leaders.index');
     }
+    $leader->delete();
+    Session::flash("flash_notification", [
+        "level"=>"success",
+        "message"=>"leader berhasil dihapus"
+        ]);
+    return redirect()->route('leaders.index');
+}
 }

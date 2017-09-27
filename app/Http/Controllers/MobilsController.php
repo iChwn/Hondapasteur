@@ -8,6 +8,9 @@ use Yajra\Datatables\Datatables;
 use App\Mobil;
 use App\Modell;
 use Session;
+use App\Leader;
+use App\Poto;
+use App\Perusahaan;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreBookRequest;
 
@@ -20,6 +23,16 @@ class MobilsController extends Controller
      */
     public function index(Request $request, Builder $htmlBuilder)
     {
+        $mobila = Mobil::orderBy('created_at','desc')->take(3)->get();
+       $potoa = Poto::orderBy('created_at','desc')->take(1)->get();
+       $poto = Poto::orderBy('created_at','desc')->take(3)->get();
+       $mobilsa = Mobil::orderBy('created_at','desc')->paginate(5);
+       $leader = Leader::orderBy('created_at','asc')->paginate(5);
+       $leadera = Leader::orderBy('created_at','asc')->paginate(1);
+       $modell = Modell::all();
+       $mobile = Mobil::all();
+       $perusahaan = Perusahaan::all();
+
         if ($request->ajax()) {
             $mobils = Mobil::with('modell');
             return Datatables::of($mobils)
@@ -43,7 +56,7 @@ class MobilsController extends Controller
         ->addColumn(['data' => 'spesifikasi', 'name'=>'spesifikasi', 'title'=>'Spesifikasi'])
         ->addColumn(['data' => 'cover', 'name'=>'cover', 'title'=>'Cover'])
         ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, 'searchable'=>false]);
-        return view('mobils.index')->with(compact('html'));
+        return view('mobils.index')->with(compact('html','mobilsa','modell','mobila','leader','poto','potoa','mobile','perusahaan','leadera')); //guest.testingadmin
     }
     /**
      * Show the form for creating a new resource.

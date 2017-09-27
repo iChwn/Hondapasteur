@@ -1340,7 +1340,7 @@ blockquote {
   margin-top: -115px; }
 
 .carousel, .item, .active, .carousel-inner {
-  height: 100%; }
+  height: 80%; }
 
 .fill {
   display: table;

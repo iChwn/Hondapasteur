@@ -19,6 +19,9 @@ class CreatePerusahaansTable extends Migration
             $table->string('service');
             $table->text('dekservice');
             $table->text('motto');
+            $table->string('cover')->nullable();
+            $table->string('cover2')->nullable();
+            $table->string('cover3')->nullable();
             $table->timestamps();
         });
     }
