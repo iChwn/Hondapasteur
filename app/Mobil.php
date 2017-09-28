@@ -13,8 +13,8 @@ class Mobil extends Model
 		return $this->belongsTo('App\Modell');
 	}
 
-	public function galeri()
+	public function poto()
 	{
-		return $this->belongsTo('App\Galeri');
+		return $this->belongsTo('App\Poto');
 	}
 }

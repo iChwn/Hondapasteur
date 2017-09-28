@@ -15,7 +15,7 @@
 				<div class="panel-body">
 					{!! Form::model($transmisi, ['url' => route('transmisis.update', $transmisi->id),
 					'method' => 'put', 'files'=>'true', 'class'=>'form-horizontal']) !!}
-					@include('testingadmin._form')
+					@include('transmisi._form')
 					{!! Form::close() !!}
 				</div>
 			</div>

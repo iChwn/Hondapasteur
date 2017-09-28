@@ -130,7 +130,46 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Dimensi</a></h4>
 											</div>
 											<div id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" class="panel-collapse collapse">
-												<div class="panel-body">Dimensi</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>PanjangxLebaxTinggi</td>
+															@foreach($dimensi as $data)
+															<td>{{$data->plt}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Jarak Sumbu Roda</td>
+															@foreach($dimensi as $data)
+															<td>{{$data->jarak_sumbu_roda}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Jarak Pijak Depan/Belakang</td>
+															@foreach($dimensi as $data)
+															<td>{{$data->jarak_pijak_db}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Kapasitas Tangki</td>
+															@foreach($dimensi as $data)
+															<td>{{$data->kapasitas_tangki}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Berat Kosong</td>
+															@foreach($dimensi as $data)
+															<td>{{$data->berat_kosong}}</td>
+															@endforeach
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 										{{-- Transmisi --}}
@@ -139,7 +178,64 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">Transmisi</a></h4>
 											</div>
 											<div id="collapseThree" role="tabpanel" aria-labelledby="headingThree" class="panel-collapse collapse">
-												<div class="panel-body">Transmisi</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Tipe</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->tipe}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>1</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->no1}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>2</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->no2}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>3</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->no3}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>4</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->no4}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>5</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->no5}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Reverse</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->reverse}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Final Gear</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->final_gear}}</td>
+															@endforeach
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 										{{-- Kemudi --}}

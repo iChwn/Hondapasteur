@@ -27,6 +27,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('perusahaans', 'PerusahaansController');
 	// Route::resource('testingadmin', 'TestingsController');
 	Route::resource('mesin', 'MesinsController');
+	Route::resource('dimensis', 'DimensisController');
+	Route::resource('transmisis', 'TransmisisController');
+	Route::resource('skemudis', 'SkemudisController');
 });
 
 Route::resource('show','GuestsController');

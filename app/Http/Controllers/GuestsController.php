@@ -14,6 +14,8 @@ use App\Leader;
 use App\Poto;
 use App\Perusahaan;
 use App\Mesin;
+use App\Dimensi;
+use App\Transmisi;
 use Laratrust\LaratrustFacade as Laratrust;
 use Illuminate\Support\Str;
 
@@ -94,12 +96,14 @@ class GuestsController extends Controller
          $filtercategori = Mobil::where('modell_id','=',$id)->get();
          $filtercategori2 = Modell::where('id','=',$id)->get();
          $mesin = Mesin::where('modell_id','=',$id)->get();
+         $dimensi = Dimensi::where('modell_id','=',$id)->get();
+         $transmisi = Transmisi::where('modell_id','=',$id)->get();
          $mobil = Mobil::orderBy('created_at','desc')->take(3)->get();
          $mobils = Mobil::orderBy('created_at','desc')->paginate(5);
          $modell = Modell::all();
          $perusahaan = Perusahaan::all();
         
-        return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin'));
+        return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin','dimensi','transmisi'));
     }
 
     /**

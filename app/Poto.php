@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Poto extends Model
 {
-    protected $fillable =['id','mobil_id','cover','cover2','cover3'];
+    protected $fillable =['mobil_id','cover','cover2','cover3'];
 
-	public function mobils()
+	public function mobil()
 	{
 		return $this->hasMany('App\Mobil');
 	}
