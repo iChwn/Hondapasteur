@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
 	<div class="row wow fadeIn">
-		<h1>Selamat Datang Di Menu Interior</h1>
+		<h1>Selamat Datang Di Menu Eksterior</h1>
 		<div class="col-sm-12">
 			<div id="accordion" role="tablist" aria-multiselectable="true" class="panel-group">
 				<div class="panel panel-default">
 					<div id="headingOne" role="tab" class="panel-heading">
-						<h4  class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Interior</a></h4>
+						<h4  class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Eksterior</a></h4>
 					</div>
 					<div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" class="panel-collapse collapse in">
 						<div class="panel-body">
-							<p> <a class="btn btn-primary" href="{{ route('interiors.create') }}">Tambah</a> </p>
+							<p> <a class="btn btn-primary" href="{{ route('eksteriors.create') }}">Tambah</a> </p>
 							{!! $html->table(['class'=>'table-striped']) !!}
 						</div>
 					</div>

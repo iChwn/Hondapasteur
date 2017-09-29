@@ -33,6 +33,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('ssuspensis', 'SsuspensisController');
 	Route::resource('srems', 'SremsController');
 	Route::resource('bans', 'BansController');
+	Route::resource('eksteriors', 'EksteriorsController');
+	Route::resource('interiors', 'InteriorsController');
 });
 
 Route::resource('show','GuestsController');

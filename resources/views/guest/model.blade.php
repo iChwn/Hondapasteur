@@ -375,7 +375,70 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" class="collapsed">Eksterior</a></h4>
 											</div>
 											<div id="collapseEight" role="tabpanel" aria-labelledby="headingEight" class="panel-collapse collapse">
-												<div class="panel-body">Eksterior</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Front Lamp</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->front_lamp}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Fog Lamp</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->fog_lamp}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Door Mirror</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->door_mirror}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Door Handle</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->door_handle}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Led High Mount Stop Lamp</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->led_high_mount_stop_lamp}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Exhaust Pipe Finisher</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->exhaust_pipe_finisher}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Glass Print Antenna</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->glass_print_antenna}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Auto Wiper</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->auto_wiper}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Hydrophillic Mirror</td>
+															@foreach($eksterior as $data)
+															<td>{{$data->hydrophillic_mirror}}</td>
+															@endforeach
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 										{{-- Interior --}}

@@ -5,15 +5,15 @@
 		<div class="col-md-12">
 			<ul class="breadcrumb">
 				<li><a href="{{ url('/home') }}">Dashboard</a></li>
-				<li><a href="{{ url('/admin/bans') }}">Ban</a></li>
-				<li class="active">Ubah Ban</li>
+				<li><a href="{{ url('/admin/interiors') }}">Interior</a></li>
+				<li class="active">Ubah Interior</li>
 			</ul>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2 class="panel-title">Ubah Profil Ban</h2>
+					<h2 class="panel-title">Ubah Profil Interior</h2>
 				</div>
 				<div class="panel-body">
-					{!! Form::model($ban, ['url' => route('bans.update', $ban->id),
+					{!! Form::model($interior, ['url' => route('interiors.update', $interior->id),
 					'method' => 'put', 'files'=>'true', 'class'=>'form-horizontal']) !!}
 					@include('testingadmin._form')
 					{!! Form::close() !!}
