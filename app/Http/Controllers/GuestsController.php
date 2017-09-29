@@ -16,6 +16,10 @@ use App\Perusahaan;
 use App\Mesin;
 use App\Dimensi;
 use App\Transmisi;
+use App\Skemudi;
+use App\Ssuspensi;
+use App\Srem;
+use App\Ban;
 use Laratrust\LaratrustFacade as Laratrust;
 use Illuminate\Support\Str;
 
@@ -98,12 +102,16 @@ class GuestsController extends Controller
          $mesin = Mesin::where('modell_id','=',$id)->get();
          $dimensi = Dimensi::where('modell_id','=',$id)->get();
          $transmisi = Transmisi::where('modell_id','=',$id)->get();
+         $skemudi = Skemudi::where('modell_id','=',$id)->get();
+         $rem = Srem::where('modell_id','=',$id)->get();
+         $ssuspensi = Ssuspensi::where('modell_id','=',$id)->get();
+         $ban = Ban::where('modell_id','=',$id)->get();
          $mobil = Mobil::orderBy('created_at','desc')->take(3)->get();
          $mobils = Mobil::orderBy('created_at','desc')->paginate(5);
          $modell = Modell::all();
          $perusahaan = Perusahaan::all();
         
-        return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin','dimensi','transmisi'));
+        return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin','dimensi','transmisi','skemudi','ssuspensi','rem','ban'));
     }
 
     /**

@@ -41,7 +41,7 @@ class SkemudisController extends Controller
             'searchable'=>false]);
         // return $html;
         // dd($html);
-        return view('testingadmin.index')->with(compact('html'));
+        return view('skemudi.index')->with(compact('html'));
     }
 
     /**
@@ -51,7 +51,7 @@ class SkemudisController extends Controller
      */
     public function create()
     {
-        //
+        return view('skemudi.create');
     }
 
     /**
@@ -62,7 +62,18 @@ class SkemudisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, ['sistem' => 'required|unique:skemudis',
+                                             'mobil_id' => 'required|exists:mobils,id',
+                                             'modell_id' => 'required|exists:modells,id',
+                                             'tilt_steering'=>'',
+                                             'telescopic_steering'=>''
+                                             ]);
+        $skemudi = Skemudi::create($request->all());
+        Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Berhasil menyimpan $skemudi->plt"
+            ]);
+        return redirect()->route('skemudis.index');
     }
 
     /**
@@ -84,7 +95,8 @@ class SkemudisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $skemudi = Skemudi::find($id);
+        return view('skemudi.edit')->with(compact('skemudi'));
     }
 
     /**
@@ -96,7 +108,19 @@ class SkemudisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, ['sistem' => 'required',
+                                             'mobil_id' => 'required|exists:mobils,id',
+                                             'modell_id' => 'required|exists:modells,id',
+                                             'tilt_steering'=>'',
+                                             'telescopic_steering'=>''
+                                             ]);
+        $skemudi = Skemudi::find($id);
+        $skemudi->update($request->all());
+        Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Berhasil menyimpan $skemudi->sistem"
+            ]);
+        return redirect()->route('skemudis.index');
     }
 
     /**
@@ -107,6 +131,11 @@ class SkemudisController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(!Skemudi::destroy($id)) return redirect()->back();
+        Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Model berhasil dihapus"
+            ]);
+        return redirect()->route('skemudis.index');
     }
 }

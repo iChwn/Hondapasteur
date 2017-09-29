@@ -12,18 +12,18 @@
 		{!! $errors->first('modell_id', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('ban') ? ' has-error' : '' }}">
-{!! Form::label('ban', 'Ban', ['class'=>'col-md-2 control-label']) !!}
+ <div class="form-group{{ $errors->has('suspensi_depan') ? ' has-error' : '' }}">
+{!! Form::label('suspensi_depan', 'Suspensi Depan', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('ban', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('ban', '<p class="help-block">:message</p>') !!}
+	{!! Form::text('suspensi_depan', null, ['class'=>'form-control', 'min'=>1]) !!}
+	{!! $errors->first('suspensi_depan', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('roda') ? ' has-error' : '' }}">
-	{!! Form::label('roda', 'Roda', ['class'=>'col-md-2 control-label']) !!}
+<div class="form-group{{ $errors->has('suspensi_belakang') ? ' has-error' : '' }}">
+{!! Form::label('suspensi_belakang', 'suspensi_belakang', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-		{!! Form::text('roda', null, ['class'=>'form-control', 'min'=>1]) !!}
-		{!! $errors->first('roda', '<p class="help-block">:message</p>') !!}
+	{!! Form::text('suspensi_belakang', null, ['class'=>'form-control', 'min'=>1]) !!}
+	{!! $errors->first('suspensi_belakang', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
 <div class="form-group">
@@ -31,5 +31,6 @@
 		{!! Form::submit('Simpan', ['class'=>'btn btn-primary']) !!}
 	</div>
 </div>
+	
 
-
+	

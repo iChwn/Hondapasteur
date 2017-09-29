@@ -65,6 +65,9 @@
                               <li><a href="{{ route('dimensis.index') }}">Dimensi</a></li>
                               <li><a href="{{ route('transmisis.index') }}">Transmisi</a></li>
                               <li><a href="{{ route('skemudis.index') }}">Sistem Kemudi</a></li>
+                              <li><a href="{{ route('ssuspensis.index') }}">Sistem Suspensi</a></li>
+                              <li><a href="{{ route('srems.index') }}">Sistem Rem</a></li>
+                              <li><a href="{{ route('bans.index') }}">Ban</a></li>
                                   </ul>
                               </li>
                               <li><a href="{{ route('potos.index') }}">Poto</a></li>

@@ -5,17 +5,17 @@
 		<div class="col-md-12">
 			<ul class="breadcrumb">
 				<li><a href="{{ url('/home') }}">Dashboard</a></li>
-				<li><a href="{{ url('/admin/bans') }}">Ban</a></li>
-				<li class="active">Tambah Ban</li>
+				<li><a href="{{ url('/admin/srems') }}">Sistem Rem</a></li>
+				<li class="active">Tambah Sistem Rem</li>
 			</ul>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2 class="panel-title">Tambah Ban</h2>
+					<h2 class="panel-title">Tambah Sistem Rem</h2>
 				</div>
 				<div class="panel-body">
-				{!! Form::open(['url' => route('bans.store'),
+				{!! Form::open(['url' => route('srems.store'),
 					'method' => 'post', 'files'=>'true', 'class'=>'form-horizontal']) !!}
-					@include('testingadmin._form')
+					@include('rem._form')
 					{!! Form::close() !!}
 				</div>
 			</div>

@@ -15,7 +15,7 @@
 				<div class="panel-body">
 				{!! Form::open(['url' => route('bans.store'),
 					'method' => 'post', 'files'=>'true', 'class'=>'form-horizontal']) !!}
-					@include('testingadmin._form')
+					@include('ban._form')
 					{!! Form::close() !!}
 				</div>
 			</div>

@@ -244,7 +244,34 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsed">Sistem Kemudi</a></h4>
 											</div>
 											<div id="collapseFour" role="tabpanel" aria-labelledby="headingFour" class="panel-collapse collapse">
-												<div class="panel-body">Sistem Kemudi</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Sistem</td>
+															@foreach($skemudi as $data)
+															<td>{{$data->sistem}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Tilt Steering</td>
+															@foreach($skemudi as $data)
+															<td>{{$data->tilt_steering}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Telescopic Steering</td>
+															@foreach($skemudi as $data)
+															<td>{{$data->telescopic_steering}}</td>
+															@endforeach
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 										{{-- Suspensi --}}
@@ -253,7 +280,28 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="collapsed">Sistem Suspensi</a></h4>
 											</div>
 											<div id="collapseFive" role="tabpanel" aria-labelledby="headingFive" class="panel-collapse collapse">
-												<div class="panel-body">Sistem Suspensi</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Suspensi Depan</td>
+															@foreach($ssuspensi as $data)
+															<td>{{$data->suspensi_depan}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Suspensi Belakang</td>
+															@foreach($ssuspensi as $data)
+															<td>{{$data->suspensi_belakang}}</td>
+															@endforeach
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 										{{-- Rem --}}
@@ -262,7 +310,33 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="collapsed">Sistem Rem</a></h4>
 											</div>
 											<div id="collapseSix" role="tabpanel" aria-labelledby="headingSix" class="panel-collapse collapse">
-												<div class="panel-body">Sistem Rem</div>
+												<div class="panel-body"></div>
+												<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>ABS + EBD</td>
+															@foreach($rem as $data)
+															<td>{{$data->absebd}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Brake Assist</td>
+															@foreach($rem as $data)
+															<td>{{$data->brake_assist}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Rem Depan</td>
+															@foreach($rem as $data)
+															<td>{{$data->rem_belakang}}</td>
+															@endforeach
+														</tr>
+													</table>
 											</div>
 										</div>
 										{{-- Ban --}}
@@ -271,7 +345,28 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" class="collapsed">Ban</a></h4>
 											</div>
 											<div id="collapseSeven" role="tabpanel" aria-labelledby="headingSeven" class="panel-collapse collapse">
-												<div class="panel-body">Ban</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Ban</td>
+															@foreach($ban as $data)
+															<td>{{$data->ban}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Roda</td>
+															@foreach($ban as $data)
+															<td>{{$data->roda}}</td>
+															@endforeach
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 										{{-- Eksterior --}}

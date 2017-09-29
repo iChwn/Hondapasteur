@@ -30,6 +30,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('dimensis', 'DimensisController');
 	Route::resource('transmisis', 'TransmisisController');
 	Route::resource('skemudis', 'SkemudisController');
+	Route::resource('ssuspensis', 'SsuspensisController');
+	Route::resource('srems', 'SremsController');
+	Route::resource('bans', 'BansController');
 });
 
 Route::resource('show','GuestsController');
