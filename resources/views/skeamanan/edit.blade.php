@@ -6,16 +6,16 @@
 			<ul class="breadcrumb">
 				<li><a href="{{ url('/home') }}">Dashboard</a></li>
 				<li><a href="{{ url('/admin/skeamanans') }}">Sistem Keamanan</a></li>
-				<li class="active">Tambah Sistem Keamanan</li>
+				<li class="active">Ubah Sistem Keamanan</li>
 			</ul>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2 class="panel-title">Tambah Sistem Keamanan</h2>
+					<h2 class="panel-title">Ubah Profil Sistem Keamanan</h2>
 				</div>
 				<div class="panel-body">
-				{!! Form::open(['url' => route('skeamanans.store'),
-					'method' => 'post', 'files'=>'true', 'class'=>'form-horizontal']) !!}
-					@include('testingadmin._form')
+					{!! Form::model($skeamanan, ['url' => route('skeamanans.update', $skeamanan->id),
+					'method' => 'put', 'files'=>'true', 'class'=>'form-horizontal']) !!}
+					@include('skeamanan._form')
 					{!! Form::close() !!}
 				</div>
 			</div>

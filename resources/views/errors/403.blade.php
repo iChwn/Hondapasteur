@@ -24,7 +24,7 @@
     </div>
     <!-- Navigation-->
     <!-- Header-->
-    <header data-background="/img/20.jpg" class="intro intro-fullscreen">
+    <header data-background="/error404.jpg" class="intro intro-fullscreen">
       <!-- Intro Header-->
       <div class="intro-body">
         <h1>404</h1>

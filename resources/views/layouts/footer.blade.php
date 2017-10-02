@@ -19,9 +19,9 @@
             <h6 class="no-pad"><a href="team.html">Our Team</a></h6>
             <h6 class="no-pad"><a href="register.html">Register</a></h6>
           </div>
-          <div class="col-sm-3 text-right">
+          {{-- <div class="col-sm-3 text-right">
             <h5>Total downloads</h5><span data-min="0" data-max="2785" data-delay="5" data-increment="3" class="numscroller">0</span>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>

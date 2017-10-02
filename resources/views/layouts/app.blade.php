@@ -42,9 +42,9 @@
                         </button>
 
                         <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}">
+                        {{-- <a class="navbar-brand" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
-                        </a>
+                        </a> --}}
                     </div>
 
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -70,6 +70,8 @@
                               <li><a href="{{ route('bans.index') }}">Ban</a></li>
                               <li><a href="{{ route('eksteriors.index') }}">Eksterior</a></li>
                               <li><a href="{{ route('interiors.index') }}">Interior</a></li>
+                              <li><a href="{{ route('fkeselamatans.index') }}">Fitur Keselamatan</a></li>
+                              <li><a href="{{ route('skeamanans.index') }}">Sistem Keamanan</a></li>
                                   </ul>
                               </li>
                               <li><a href="{{ route('potos.index') }}">Poto</a></li>

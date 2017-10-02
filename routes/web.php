@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/', 'GuestsController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('login', 'AdminController@error');
+Route::get('/home', 'AdminController@index');
+Route::get('admin-l', 'AdminController@login');
 
 Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function () {
 	Route::resource('models', 'ModellsController');
@@ -35,6 +35,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('bans', 'BansController');
 	Route::resource('eksteriors', 'EksteriorsController');
 	Route::resource('interiors', 'InteriorsController');
+	Route::resource('fkeselamatans', 'FkeselamatansController');
+	Route::resource('skeamanans', 'SkeamanansController');
 });
 
 Route::resource('show','GuestsController');

@@ -232,7 +232,7 @@
       @foreach($mobils as $data)
       <div class="col-sm-4"><a href="news-single-sidebar.html"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block">
         <h5>{{$data->nama_mobil}}</h5></a>
-        <p>{!!$data->deskripsi!!}</p>
+        <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
         <a class="btn btn-default" href="{{route('show.show',$data->id)}}">Read more</a>
       </div>
       @endforeach       
@@ -509,9 +509,9 @@
             <h6 class="no-pad"><a href="team.html">Our Team</a></h6>
             <h6 class="no-pad"><a href="register.html">Register</a></h6>
           </div>
-          <div class="col-sm-3 text-right">
+          {{-- <div class="col-sm-3 text-right">
             <h5>Total downloads</h5><span data-min="0" data-max="2785" data-delay="5" data-increment="3" class="numscroller">0</span>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>

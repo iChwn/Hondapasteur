@@ -64,7 +64,7 @@ class InteriorsController extends Controller
         ->addColumn(['data' => 'active_noise_cancellation', 'name'=>'active_noise_cancellation','title'=>'Active Noise Cancellation'])
         ->addColumn(['data' => 'automatic_ac', 'name'=>'automatic_ac','title'=>'Automatic AC'])
         ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false,'searchable'=>false]);
-        return view('testingadmin.index')->with(compact('html'));
+        return view('interior.index')->with(compact('html'));
     }
 
     /**
@@ -74,7 +74,7 @@ class InteriorsController extends Controller
      */
     public function create()
     {
-        return view('testingadmin.create');
+        return view('interior.create');
     }
 
     /**
@@ -146,7 +146,8 @@ class InteriorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $interior = Interior::find($id);
+        return view('interior.edit')->with(compact('interior'));
     }
 
     /**
@@ -158,7 +159,47 @@ class InteriorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, ['audio' => '',
+           'mobil_id' => 'required|exists:mobils,id',
+           'modell_id' => 'required|exists:modells,id',
+           'mil'=>'',
+           'econ'=>'',
+           'one_push_ignition_system'=>'',
+           'leather_steering_shift_knob'=>'',
+           'audio_steering_switch'=>'',
+           'paddle_shift'=>'',
+           'cruise_control'=>'',
+           'auto_door_lock_by_speed'=>'',
+           'power_window'=>'',
+           'tweeter'=>'',
+           'trunk_capacity'=>'',
+           'green_glass'=>'',
+           'driver_seat_heigh_adjuster'=>'',
+           'front_rear_seat_reclining'=>'',
+           'navi_system'=>'',
+           'hft'=>'',
+           'meter_cluster'=>'',
+           'auto_dimming_rearview_mirror'=>'',
+           'speed_sensitive_volume_compensation'=>'',
+           'rear_ventilation_ac'=>'',
+           'seat_trim_material'=>'',
+           'active_noise_cancelation'=>'',
+           'power_seat_adjustment'=>'',
+           'driver_seat'=>'',
+           'side_sunshade'=>'',
+           'power_rear_sunshade'=>'',
+           'rear_audio_switch_control'=>'',
+           'auto_dimming_rear_view'=>'',
+           'rear_seat_fold_down'=>'',
+           'active_noise_cancellation'=>'',
+           'automatic_ac'=>'',]);
+        $interior = Interior::find($id);
+        $interior->update($request->all());
+        Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Berhasil menyimpan $interior->plt"
+            ]);
+        return redirect()->route('interiors.index');
     }
 
     /**

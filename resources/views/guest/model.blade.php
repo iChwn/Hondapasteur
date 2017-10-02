@@ -1,22 +1,22 @@
 @extends('layouts.user')
 @section('content')
 <style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
+	th, td {
+		text-align: left;
+		padding: 8px;
+	}
 
-tr:nth-child(even){background-color: #f2f2f2}
+	tr:nth-child(even){background-color: #f2f2f2}
 
-th {
-    background:rgba(0,0,0, 0.5);;
-    color: white;
-}
+	th {
+		background:rgba(0,0,0, 0.5);;
+		color: white;
+	}
 </style>
 
 <div class="small-header bg-img2">
@@ -46,16 +46,22 @@ th {
 				<ul role="tablist" class="nav nav-tabs">
 					<li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Main</a></li>
 					<li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Spesifikasi</a></li>
-					<li role="presentation"><a href="#tab3" aria-controls="tab2" role="tab" data-toggle="tab">Eksterior</a></li>
-					<li role="presentation"><a href="#tab4" aria-controls="tab2" role="tab" data-toggle="tab">Interior</a></li>
-					<li role="presentation"><a href="#tab5" aria-controls="tab2" role="tab" data-toggle="tab">Harga	</a></li>
+					<li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Eksterior</a></li>
+					<li role="presentation"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Interior</a></li>
+					<li role="presentation"><a href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab">Harga	</a></li>
 
 				</ul>
 				<!-- Tab panes-->
 				<div class="tab-content">
 					<div id="tab1" role="tabpanel" class="tab-pane fade in active">
 						@foreach($filtercategori as $data)
-						<p class="no-pad">{!!$data->deskripsi!!}</p> 
+						<h3><p>{{$data->nama_mobil}}</p></h3> 
+						<p class="no-pad">{!!$data->deskripsi!!}</p>
+						<hr width="1150px" class="no-pad">
+						<hr width="1150px" class="no-pad">
+						<hr width="1150px" class="no-pad">
+						<hr width="1150px" class="no-pad">
+						<hr width="1150px" class="no-pad"> 
 						@endforeach
 					</div>
 					<div id="tab2" role="tabpanel" class="tab-pane fade">
@@ -71,7 +77,7 @@ th {
 											</div>
 											<div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" class="panel-collapse collapse in">
 												<div class="panel-body">
-												<table class="table">	
+													<table class="table">	
 														<tr>
 															<th></th>
 															@foreach($filtercategori as $data)
@@ -312,31 +318,31 @@ th {
 											<div id="collapseSix" role="tabpanel" aria-labelledby="headingSix" class="panel-collapse collapse">
 												<div class="panel-body"></div>
 												<table class="table">	
-														<tr>
-															<th></th>
-															@foreach($filtercategori as $data)
-															<th>{{$data->nama_mobil}}</th>
-															@endforeach
-														</tr>
-														<tr>
-															<td>ABS + EBD</td>
-															@foreach($rem as $data)
-															<td>{{$data->absebd}}</td>
-															@endforeach
-														</tr>
-														<tr>
-															<td>Brake Assist</td>
-															@foreach($rem as $data)
-															<td>{{$data->brake_assist}}</td>
-															@endforeach
-														</tr>
-														<tr>
-															<td>Rem Depan</td>
-															@foreach($rem as $data)
-															<td>{{$data->rem_belakang}}</td>
-															@endforeach
-														</tr>
-													</table>
+													<tr>
+														<th></th>
+														@foreach($filtercategori as $data)
+														<th>{{$data->nama_mobil}}</th>
+														@endforeach
+													</tr>
+													<tr>
+														<td>ABS + EBD</td>
+														@foreach($rem as $data)
+														<td>{{$data->absebd}}</td>
+														@endforeach
+													</tr>
+													<tr>
+														<td>Brake Assist</td>
+														@foreach($rem as $data)
+														<td>{{$data->brake_assist}}</td>
+														@endforeach
+													</tr>
+													<tr>
+														<td>Rem Depan</td>
+														@foreach($rem as $data)
+														<td>{{$data->rem_belakang}}</td>
+														@endforeach
+													</tr>
+												</table>
 											</div>
 										</div>
 										{{-- Ban --}}
@@ -447,37 +453,385 @@ th {
 												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine" class="collapsed">Interior</a></h4>
 											</div>
 											<div id="collapseNine" role="tabpanel" aria-labelledby="headingNine" class="panel-collapse collapse">
-												<div class="panel-body">Interior</div>
-											</div>
+												<div class="panel-body">
+													<table class="table">	
+														<tr>
+															<th></th>
+															@foreach($filtercategori as $data)
+															<th>{{$data->nama_mobil}}</th>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Audio</td>
+															@foreach($interior as $data)
+															<td>{{$data->audio}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Multi Information LCD Display</td>
+															@foreach($interior as $data)
+															<td>{{$data->mil}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>ECON Button</td>
+															@foreach($interior as $data)
+															<td>{{$data->econ}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>One Push Ignition System</td>
+															@foreach($interior as $data)
+															<td>{{$data->one_push_ignition_system}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Leather Steering & Shift Knob</td>
+															@foreach($interior as $data)
+															<td>{{$data->leather_steering_shift_knob}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Audio Steering Switch</td>
+															@foreach($interior as $data)
+															<td>{{$data->audio_steering_switch}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Paddle Shift</td>
+															@foreach($interior as $data)
+															<td>{{$data->paddle_shift}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Cruise Control</td>
+															@foreach($interior as $data)
+															<td>{{$data->cruise_control}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Auto Door Lock by Speed</td>
+															@foreach($interior as $data)
+															<td>{{$data->auto_door_lock_by_speed}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Power Window</td>
+															@foreach($interior as $data)
+															<td>{{$data->power_window}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Tweeter</td>
+															@foreach($interior as $data)
+															<td>{{$data->tweeter}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Trunk Capacity (liter)</td>
+															@foreach($interior as $data)
+															<td>{{$data->trunk_capacity}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>Green Glass</td>
+															@foreach($interior as $data)
+															<td>{{$data->green_glass}}</td>
+															@endforeach
+														</tr><tr>
+														<td>Driver Seat Height Adjuster</td>
+														@foreach($interior as $data)
+														<td>{{$data->driver_seat_heigh_adjuster}}</td>
+														@endforeach
+													</tr>
+													<tr>
+														<td>Front & Rear Seat Reclining</td>
+														@foreach($interior as $data)
+														<td>{{$data->front_rear_seat_reclining}}</td>
+														@endforeach
+													</tr><tr>
+													<td>NAVI System</td>
+													@foreach($interior as $data)
+													<td>{{$data->navi_system}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Hands-Free Telephone (HFT)</td>
+													@foreach($interior as $data)
+													<td>{{$data->hft}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Meter Cluster</td>
+													@foreach($interior as $data)
+													<td>{{$data->meter_cluster}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Auto Dimming Rearview Mirror</td>
+													@foreach($interior as $data)
+													<td>{{$data->auto_dimming_rearview_mirror}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Speed Sensitive Volume Compensation</td>
+													@foreach($interior as $data)
+													<td>{{$data->speed_sensitive_volume_compensation}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Rear Ventilation AC</td>
+													@foreach($interior as $data)
+													<td>{{$data->rear_ventilation_ac}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Active Noise Cancelation</td>
+													@foreach($interior as $data)
+													<td>{{$data->active_noise_cancelation}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Power Seat Adjustment</td>
+													@foreach($interior as $data)
+													<td>{{$data->power_seat_adjustment}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Diver Seat</td>
+													@foreach($interior as $data)
+													<td>{{$data->driver_seat}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Side Sunshade</td>
+													@foreach($interior as $data)
+													<td>{{$data->side_sunshade}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Power Rear Sunshade</td>
+													@foreach($interior as $data)
+													<td>{{$data->power_rear_sunshade}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Rear Audio Switch Control</td>
+													@foreach($interior as $data)
+													<td>{{$data->rear_audio_switch_control}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Auto Dimming Rear View</td>
+													@foreach($interior as $data)
+													<td>{{$data->auto_dimming_rear_view}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Rear Seat Fold Down</td>
+													@foreach($interior as $data)
+													<td>{{$data->rear_seat_fold_down}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Active Noise Cancellation</td>
+													@foreach($interior as $data)
+													<td>{{$data->active_noise_cancellation}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Automatic AC</td>
+													@foreach($interior as $data)
+													<td>{{$data->automatic_ac}}</td>
+													@endforeach
+												</tr>
+											</table>
 										</div>
-										{{-- Keselamatan --}}
-										<div class="panel panel-default">
-											<div id="headingTen" role="tab" class="panel-heading">
-												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen" class="collapsed">Fitur Keselamatan</a></h4>
-											</div>
-											<div id="collapseTen" role="tabpanel" aria-labelledby="headingTen" class="panel-collapse collapse">
-												<div class="panel-body">Fitue Keselamatan</div>
-											</div>
+									</div>
+								</div>
+								{{-- Keselamatan --}}
+								<div class="panel panel-default">
+									<div id="headingTen" role="tab" class="panel-heading">
+										<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen" class="collapsed">Fitur Keselamatan</a></h4>
+									</div>
+									<div id="collapseTen" role="tabpanel" aria-labelledby="headingTen" class="panel-collapse collapse">
+										<div class="panel-body">
+											<table class="table">	
+												<tr>
+													<th></th>
+													@foreach($filtercategori as $data)
+													<th>{{$data->nama_mobil}}</th>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Struktur Rangka Body</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->struktur_rangka_body}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Side Impact Beam</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->side_impact_beam}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Side Airbags</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->side_airbags}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Side Curtain Airbags</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->side_curtain_airbags}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Pedestrian Protection</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->pedestrian_protection}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Dual Front SRS Airbags</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->dual_front_srs_airbags}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Sabuk Keselamatan (Front)</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->sabuk_keselamatan_f}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Sabuk Keselamatan (Rear)</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->sabuk_keselamatan_r}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Pretensioner Load Limiter Seatbelt</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->pretensioner_load_limiter_seatbelt}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>ISOFIX & Lether</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->isofix_tether}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Parking Sensor</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->parking_sensor}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>VSA</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->vsa}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Hill Start Assist</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->hill_start_assist}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Emergency Stop Signal</td>
+													@foreach($fkeselamatan as $data)
+													<td>{{$data->emergency_stop_ignal}}</td>
+													@endforeach
+												</tr>
+											</table>
 										</div>
-										{{-- Keamanan --}}
-										<div class="panel panel-default">
-											<div id="headingEleven" role="tab" class="panel-heading">
-												<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven" class="collapsed">Sistem Keamanan</a></h4>
-											</div>
-											<div id="collapseEleven" role="tabpanel" aria-labelledby="headingEleven" class="panel-collapse collapse">
-												<div class="panel-body">Sistem Keamanan</div>
-											</div>
+									</div>
+								</div>
+								{{-- Keamanan --}}
+								<div class="panel panel-default">
+									<div id="headingEleven" role="tab" class="panel-heading">
+										<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven" class="collapsed">Sistem Keamanan</a></h4>
+									</div>
+									<div id="collapseEleven" role="tabpanel" aria-labelledby="headingEleven" class="panel-collapse collapse">
+										<div class="panel-body">
+											<table class="table">	
+												<tr>
+													<th></th>
+													@foreach($filtercategori as $data)
+													<th>{{$data->nama_mobil}}</th>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Key Type</td>
+													@foreach($skeamanan as $data)
+													<td>{{$data->key_type}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Keyless Entry</td>
+													@foreach($skeamanan as $data)
+													<td>{{$data->keyless_entry}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Immobilizer</td>
+													@foreach($skeamanan as $data)
+													<td>{{$data->immobilizer}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Alarm System</td>
+													@foreach($skeamanan as $data)
+													<td>{{$data->alarm_system}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Keyless Trunk Opener</td>
+													@foreach($skeamanan as $data)
+													<td>{{$data->keyless_trunk_opener}}</td>
+													@endforeach
+												</tr>
+												<tr>
+													<td>Smart Entry</td>
+													@foreach($skeamanan as $data)
+													<td>{{$data->smart_entry}}</td>
+													@endforeach
+												</tr>
+											</table>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div id="tab3" role="tabpanel" class="tab-pane fade">Null</div>
 				</div>
 			</div>
+			<div id="tab3" role="tabpanel" class="tab-pane fade">Eksterior</div>
+			<div id="tab4" role="tabpanel" class="tab-pane fade">Interior</div>
+			<div id="tab5" role="tabpanel" class="tab-pane fade">
+				<table class="table">	
+					<tr>
+						<th></th>
+						@foreach($filtercategori as $data)
+						<th>{{$data->nama_mobil}}</th>
+						@endforeach
+					</tr>
+					<tr>
+						<td>Harga</td>
+						@foreach($filtercategori as $data)
+						<td>Rp. {{number_format($data->harga,0,'','.').',-'}}</td>
+						@endforeach
+					</tr>
+				</table>
+			</div>
 		</div>
-	</div>
+	</div> {{-- . number_format( $angka , 0 , ” , ‘.’ ) . “,-“; --}}
+</div>
+</div>
 </section>
 @include('layouts.footer')
 @endsection

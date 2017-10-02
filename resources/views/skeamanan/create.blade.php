@@ -15,7 +15,7 @@
 				<div class="panel-body">
 				{!! Form::open(['url' => route('skeamanans.store'),
 					'method' => 'post', 'files'=>'true', 'class'=>'form-horizontal']) !!}
-					@include('testingadmin._form')
+					@include('skeamanan._form')
 					{!! Form::close() !!}
 				</div>
 			</div>

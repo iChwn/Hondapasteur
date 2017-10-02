@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button><a href="{{ url('/guest') }}" class="navbar-brand page-scroll">
+          </button><a href="{{ url('/') }}" class="navbar-brand page-scroll">
             <!-- Text or Image logo--><img src="/img/" alt="Honda Pasteur" class="logodrak">{{-- <img src="img/logodark.png" alt="Honda Pasteur" class="logodark"> --}}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling-->
