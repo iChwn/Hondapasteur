@@ -15,7 +15,7 @@
           <div class="col-sm-2 footer-menu">
             <h5>&nbsp;</h5>
             <h6 class="no-pad"><a href="{{ url('/about') }}">About us</a></h6>
-            <h6 class="no-pad"><a href="portfolio-masonry-4.html">Portfolio</a></h6>
+            <h6 class="no-pad"><a href="{{ url('/portfolio') }}">Portfolio</a></h6>
             <h6 class="no-pad"><a href="team.html">Our Team</a></h6>
             <h6 class="no-pad"><a href="register.html">Register</a></h6>
           </div>

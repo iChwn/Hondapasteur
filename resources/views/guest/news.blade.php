@@ -27,10 +27,9 @@
             <h4>{{$mobile->nama_mobil}}</h4>
             <div id="carousel-news" class="carousel slide carousel-fade">
               <ol class="carousel-indicators indicators-inside">
-                {{-- <li data-target="#carousel-news" data-slide-to="0" hidden=""></li> --}}
-                <li data-target="#carousel-news" data-slide-to="1" class="active"></li>
+                <li data-target="#carousel-news" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-news" data-slide-to="1"></li>
                 <li data-target="#carousel-news" data-slide-to="2"></li>
-                <li data-target="#carousel-news" data-slide-to="3"></li>
               </ol>
               <div class="carousel-inner">
               @foreach($potoa as $data)
@@ -40,7 +39,7 @@
               @endforeach
               </div><a href="#carousel-news" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#carousel-news" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a>
             </div>
-            <blockquote class="no-pad"> <font size="40ps"> Buat Judul </font></blockquote>
+            <blockquote class="no-pad"> <font size="40ps"> {{$mobile->nama_mobil}} </font></blockquote>
             <p>{!!$mobile->deskripsi!!}</p>
             <blockquote></blockquote>
             <p></a>
@@ -63,14 +62,12 @@
               </div>
             </form>
             <hr>
-            <h4>categories</h4>
+            <h4>Model</h4>
             <ul class="list-unstyled">
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Frameworks</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Fashion</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Front End</a></li>
+              @foreach($modell as $data)       
+              <li>
+              <a href="{{route('showperkategori', $data->id)}}">{!! $data->nama_model !!}</a></li>
+              @endforeach
             </ul>
             <hr>
             <h4>Partners</h4>
@@ -111,9 +108,10 @@
         <h3>Recent News</h3>
         <div class="row">
         @foreach($mobil as $data)
-          <div class="col-sm-6 col-md-3"><a href="news-single.html"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block"/>
-              <h5>Lorem ipsum</h5></a>
-            <p>Lorem ipsum dolor sit amet, consectetur elit. Nulla convallis pulvinar vestibulum.</p>
+          <div class="col-sm-6 col-md-3"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block"/>
+              <h5>{{$data->nama_mobil}}</h5></a>
+            <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
+        <a class="btn btn-default" href="{{route('show.show',$data->id)}}">Read more</a>
           </div>
         @endforeach
         </div>
@@ -137,60 +135,7 @@
     </div>
 
     <!-- Footer Section-->
-    <section class="section-small footer bg-gray">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <h5>About</h5>
-            <p>Thanks for choosing Universal for your next project! Universal is a unique template for building  beautiful business website. We have a dedicated support team ready to answer your questions.</p>
-          </div>
-          <div class="col-sm-2 col-sm-offset-1 footer-menu">
-            <h5>Company</h5>
-            <h6 class="no-pad"><a href="services.html">Our Services</a></h6>
-            <h6 class="no-pad"><a href="clients.html">Our Clients</a></h6>
-            <h6 class="no-pad"><a href="contact.html">Contact Us</a></h6>
-            <h6 class="no-pad"><a href="shop.html">Shop</a></h6>
-          </div>
-          <div class="col-sm-2 footer-menu">
-            <h5>&nbsp;</h5>
-            <h6 class="no-pad"><a href="about.html">About us</a></h6>
-            <h6 class="no-pad"><a href="portfolio-masonry-4.html">Portfolio</a></h6>
-            <h6 class="no-pad"><a href="team.html">Our Team</a></h6>
-            <h6 class="no-pad"><a href="register.html">Register</a></h6>
-          </div>
-          <div class="col-sm-3 text-right">
-            <h5>Total downloads</h5><span data-min="0" data-max="2785" data-delay="5" data-increment="3" class="numscroller">0</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section-small footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <h6>Powered By <a href="http://forbetterweb.com/"> forbetterweb.com</a>
-            </h6>
-          </div>
-          <div class="col-sm-3 col-sm-offset-1">
-            <h6>We <i class="fa fa-heart fa-fw"></i> creative people
-            </h6>
-          </div>
-          <div class="col-sm-3 col-sm-offset-1 text-right">
-            <ul class="list-inline">
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-twitter fa-fw fa-lg"></i></a></li>
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-facebook fa-fw fa-lg"></i></a></li>
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-google-plus fa-fw fa-lg"></i></a></li>
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-linkedin fa-fw fa-lg"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    @include('layouts.footer')
   </body>
 
 <!-- Mirrored from forbetterweb.com/html/universal/news-single-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Sep 2017 13:20:01 GMT -->

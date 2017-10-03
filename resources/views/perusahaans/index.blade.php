@@ -11,7 +11,7 @@
 					</div>
 					<div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" class="panel-collapse collapse in">
 						<div class="panel-body">
-							<p> <a class="btn btn-primary" href="{{ route('perusahaans.create') }}">Tambah</a> </p>
+							{{-- <p> <a class="btn btn-primary" href="perusahaans/edit">Edit</a> </p> --}}
 							{!! $html->table(['class'=>'table-striped']) !!}
 						</div>
 					</div>

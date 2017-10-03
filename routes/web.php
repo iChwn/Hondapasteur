@@ -44,4 +44,5 @@ Route::resource('guest', 'GuestsController');
 Route::resource('testing', 'GuestsController@testing');
 Route::resource('about', 'GuestsController@about');
 Route::resource('service', 'GuestsController@services');
+Route::resource('portfolio', 'GuestsController@portfolio');
 Route::get('/model/{id}', array('as' => 'showperkategori', 'uses' =>'GuestsController@showperkategori'));

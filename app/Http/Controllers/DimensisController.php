@@ -69,7 +69,7 @@ class DimensisController extends Controller
                                              'modell_id' => 'required|exists:modells,id',
                                              'jarak_sumbu_roda'=>'',
                                              'jarak_pijak_db'=>'',
-                                             'silinder'=>'',
+                                             // 'silinder'=>'',
                                              'kapasitas_tangki'=>'',
                                              'berat_kosong'=>'']);
         $dimensi = Dimensi::create($request->all());

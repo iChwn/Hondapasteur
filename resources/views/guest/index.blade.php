@@ -41,216 +41,226 @@
           <li class="dropdown">
             <a>Model<i class="fa fa-chevron-down fa-fw"></i></a>
             <ul class="dropdown-menu">
-            @foreach($modell as $data)       
+              @foreach($modell as $data)       
               <li>
-              <a href="{{route('showperkategori', $data->id)}}">{!! $data->nama_model !!}</a></li>
-              @endforeach
-            </ul>
-          </li>
-          <li class="hidden"><a href="#page-top"></a></li>
-          <li><a href="#about" class="page-scroll">About</a></li>
-          <li><a href="#services" class="page-scroll">Services</a></li>
-          <li><a href="#news" class="page-scroll">News</a></li>
-          <li><a href="#portfolio" class="page-scroll">Works</a></li>
-          <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>
-          <li><a href="#contact" class="page-scroll">Contact</a></li>
-          
+                <a href="{{route('showperkategori', $data->id)}}">{!! $data->nama_model !!}</a></li>
+                @endforeach
+              </ul>
+            </li>
+            <li class="hidden"><a href="#page-top"></a></li>
+            <li><a href="#about" class="page-scroll">About</a></li>
+            <li><a href="#services" class="page-scroll">Services</a></li>
+            <li><a href="#news" class="page-scroll">News</a></li>
+            <li><a href="#portfolio" class="page-scroll">Works</a></li>
+            <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>
+            <li><a href="#contact" class="page-scroll">Contact</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle"><i class="fa fa-search fa-lg"></i><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <form method="post" class="search-form">
+                    <button type="submit" title="Search" class="search-button"><i class="fa fa-search fa-lg"></i></button>
+                    <input type="text" placeholder="SEARCH" class="form-control search-field">
+                  </form>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header-->
+    <header class="intro">
+      <!-- Intro Header-->
+      <div class="intro-body">
+        <h2>Deler <span class="bold">Mobil</span> Honda
+        </h2>
+        <h1>Honpas<span class="badge hidden-sm hidden-xs ">Sience<br>1985</span></h1>
+        <div data-wow-delay="1s" class="scroll-btn wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div>
+      </div>
+    </header>
+    <!-- Slider-->
+    <section id="about" class="section-small">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3>Siapakah Kami?</h3>
+            @foreach($perusahaan as $data)
+            <p class="no-pad">{!!$data->about!!}</p> 
+            @endforeach
+            <h2 class="classic">Team Honda Pasteur</h2>
+          </div>
 
-        </ul>
+          <div data-wow-duration="2s" data-wow-delay=".2s" class="col-lg-5 col-lg-offset-1 wow zoomIn">
+            <p>
+              <div id="carousel-light2" class="carousel slide carousel-fade">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-light2" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-light2" data-slide-to="1"></li>
+                  <li data-target="#carousel-light2" data-slide-to="2"></li>
+                </ol>
+
+                <div role="listbox" class="carousel-inner">
+
+                  @foreach($perusahaan as $data)
+                  <br>
+                  <div class="item active" hidden=""><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive center-block"></div>
+                  <div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive center-block"></div>
+                  <div class="item"><img src="/img/img3/{{$data->cover3}}" alt="" class="img-responsive center-block"></div>
+                  @endforeach
+                  <div class="item"><img src="img/misc/4.png" alt="" class="img-responsive center-block"></div> 
+                </div>
+
+              </div>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- About Section-->
+    <section id="about2" class="bg-gray">
+      <div class="container wow fadeIn">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3>Persentasi Perusahan Kami</h3>
+            <p>Setiap harinya kami mengalami kenaikan yang begitu drastis, sehingga memajukan perusahaan kami begitu PESAT, dan mengalahkan beberapa perusahaan ternama di Indonesia</p><a href="https://themeforest.net/item/universal-smart-multipurpose-html5-template/17268942" class="btn btn-dark">Check it out</a>
+          </div>
+          <div class="col-lg-5 col-lg-offset-1 text-center">
+            <h3>&nbsp;</h3>
+            <div data-thickness="4" data-value="0.93" class="circle"><span></span>
+              <div class="agenda">Pendapatan</div>
+            </div>
+            <div data-thickness="10" data-value="0.82" class="circle"><span></span>
+              <div class="agenda">Pengabdian</div>
+            </div>
+            <div data-thickness="18" data-value="0.68" class="circle"><span></span>
+              <div class="agenda">Pengeluaran</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section-->
+    <section id="services" class="bg-img4 text-center">
+      <div class="overlay"></div>
+      <div class="container text-center">
+        <div class="row">
+         @foreach($perusahaan as $data)
+         <div class="col-lg-8 col-lg-offset-2">
+          <h3>{{$data->service}}</h3>
+          <p>{!!$data->dekservice!!}</p>
+        </div>
+        @endforeach
+      </div>
+      <div class="row">
+        <div data-wow-delay=".2s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big fa fa-money"></i> Keuangan</h4>
+          <p>Biyaya Perawatan Lebih Hemat</p>
+        </div>
+        <div data-wow-delay=".4s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon-big ion-ios-pulse"></i> Harga</h4>
+          <p>Bebas Kenaikan Harga</p>
+        </div>
+        <div data-wow-delay=".6s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big ion-ios-stopwatch-outline"></i> Cicilan</h4>
+          <p>Dapat Dicicil Bersama Kredit Mobil</p>
+        </div>
+        <div data-wow-delay=".8s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big fa fa-car"></i> Kendaraan</h4>
+          <p>Kendaraan Tetap Prima</p>
+        </div>
+        <div data-wow-delay="1s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big fa fa-globe"></i>Deler</h4>
+          <p>Berlaku Di Seluruh Deler Honda Di Indonesia</p>
+        </div>
+        <div data-wow-delay="1.2s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big fa fa-crop"></i>Paket Cermat Plus+</h4>
+          <p>Potongan Harga Jasa dan Suku Cadang unruk Perbaikan Umum*</p>
+        </div>
+        <div data-wow-delay="1.4s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big fa fa-refresh"></i>Paket Cermat Plus+</h4>
+          <p>Dapat Dipindahkan ke Kendaraan Baru*</p>
+        </div>
+        <div data-wow-delay="1.6s" class="col-lg-3 col-sm-6 wow fadeIn">
+          <h4><i class="icon icon-big fa fa-usd"></i>Paket Cermat Plus+</h4>
+          <p>Bebas dari Biaya Perbaikan Tak Terduga</p>
+        </div> 
       </div>
     </div>
-  </nav>
-  <!-- Header-->
-  <header class="intro">
-    <!-- Intro Header-->
-    <div class="intro-body">
-      <h2>Deler <span class="bold">Mobil</span> Honda
-      </h2>
-      <h1>Honpas<span class="badge hidden-sm hidden-xs">Laravel</span></h1>
-      <div data-wow-delay="1s" class="scroll-btn wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div>
-    </div>
-  </header>
+    <div><a href="/portfolio" class="btn btn-dark-border">Lihat Paket</a></div>
+  </section>
+
   <!-- Slider-->
-  <section id="about" class="section-small">
+  <section id="action-slider">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h3>Siapakah Kami?</h3>
-          @foreach($perusahaan as $data)
-          <p class="no-pad">{!!$data->about!!}</p> 
-          @endforeach
-          <h2 class="classic">Team Honda Pasteur</h2>
+        <div class="col-lg-5">
+          <h3>Awesome Template</h3>
+          <p>Universal is the perfect template for your next project! It’s time to grow your business. Go make something awesome. Designed for Everyone. Let’s give your website a brand.</p><a href="https://themeforest.net/item/universal-smart-multipurpose-html5-template/17268942" class="btn btn-dark">Get it Now!</a>
         </div>
-
-        <div data-wow-duration="2s" data-wow-delay=".2s" class="col-lg-5 col-lg-offset-1 wow zoomIn">
-          <p>
-            <div id="carousel-light2" class="carousel slide carousel-fade">
-              <ol class="carousel-indicators">
-                <li data-target="#carousel-light2" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-light2" data-slide-to="1"></li>
-                <li data-target="#carousel-light2" data-slide-to="2"></li>
-              </ol>
-
-              <div role="listbox" class="carousel-inner">
-
-                @foreach($perusahaan as $data)
-                <br>
-                <div class="item active" hidden=""><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive center-block"></div>
-                <div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive center-block"></div>
-                <div class="item"><img src="/img/img3/{{$data->cover3}}" alt="" class="img-responsive center-block"></div>
-                @endforeach
-                <div class="item"><img src="img/misc/4.png" alt="" class="img-responsive center-block"></div> 
-              </div>
-
+        <div class="col-lg-6 col-lg-offset-1">
+          <div id="carousel-light" class="carousel slide carousel-fade">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-light" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-light" data-slide-to="1"></li>
+              <li data-target="#carousel-light" data-slide-to="2"></li>
+            </ol>
+            <div role="listbox" class="carousel-inner">
+              <div class="item active"><img src="img/misc/1.png" alt="" class="img-responsive center-block"></div>
+              <div class="item"><img src="img/misc/2.png" alt="" class="img-responsive center-block"></div>
+              <div class="item"><img src="img/misc/3.png" alt="" class="img-responsive center-block"></div>
             </div>
-          </p>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
-  <!-- About Section-->
-  <section id="about2" class="bg-gray">
-    <div class="container wow fadeIn">
+  <!-- Subscribe Section-->
+  <section id="subscribe" class="section-small bg-img5 text-center">
+    <div class="overlay-white"></div>
+    <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h3>Persentasi Perusahan Kami</h3>
-          <p>Setiap harinya kami mengalami kenaikan yang begitu drastis, sehingga memajukan perusahaan kami begitu PESAT, dan mengalahkan beberapa perusahaan ternama di Indonesia</p><a href="https://themeforest.net/item/universal-smart-multipurpose-html5-template/17268942" class="btn btn-dark">Check it out</a>
-        </div>
-        <div class="col-lg-5 col-lg-offset-1 text-center">
-          <h3>&nbsp;</h3>
-          <div data-thickness="4" data-value="0.93" class="circle"><span></span>
-            <div class="agenda">Pendapatan</div>
-          </div>
-          <div data-thickness="10" data-value="0.82" class="circle"><span></span>
-            <div class="agenda">Pengabdian</div>
-          </div>
-          <div data-thickness="18" data-value="0.68" class="circle"><span></span>
-            <div class="agenda">Pengeluaran</div>
-          </div>
+        <div class="col-md-8 col-sm-offset-2">
+          <h3>Datang Kemari</h3>
+          <h5>Dan Buktikan Secara Langsung Di Outlet Kami</h5>
+          <!-- MailChimp Signup Form - Replace the form action in the line below with your MailChimp embed action! For more information on how to do this please visit the Docs!-->
+          {{-- <i class="icon icon-big ion-ios-analytics-outline"></i> --}}
+          <!-- End MailChimp Signup Form--><img src="{{asset('honda-xxl.png')}}" alt="">
         </div>
       </div>
     </div>
   </section>
-  <!-- Services Section-->
-  <section id="services" class="bg-img4 text-center">
-    <div class="overlay"></div>
+  <!-- News Block-->
+  <section id="news">
+    <div class="container">
+      <h3 class="pull-left">Latest news</h3>
+      <div class="pull-right">
+        <h5><a href="news3.html">SEE ALL</a></h5>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row grid-pad">
+        @foreach($mobils as $data)
+        <div class="col-sm-4"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block">
+          <h5>{{$data->nama_mobil}}</h5></a>
+          <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
+          <a class="btn btn-default" href="{{route('show.show',$data->id)}}">Read more</a>
+        </div>
+        @endforeach       
+      </div>
+    </div>
+  </section>
+  <!-- Portfolio-->
+  <section id="portfolio" class="bg-gray no-pad-btm">
     <div class="container text-center">
       <div class="row">
-       @foreach($perusahaan as $data)
-       <div class="col-lg-8 col-lg-offset-2">
-        <h3>{{$data->service}}</h3>
-        <p>{!!$data->dekservice!!}</p>
-      </div>
-      @endforeach
-    </div>
-    <div class="row">
-      <div data-wow-delay=".2s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-analytics-outline"></i> ANALITICS</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-      <div data-wow-delay=".4s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-pie-outline"></i> DESIGN</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-      <div data-wow-delay=".6s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-stopwatch-outline"></i> CONSULTING</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-      <div data-wow-delay=".8s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-game-controller-b-outline"></i> ADVERTISING</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-      <div data-wow-delay="1s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big icon ion-ios-infinite-outline"></i>BRANDING</h4>
-        <p>Dengan merek yang begitu dikenal.</p>
-      </div>
-      <div data-wow-delay="1.2s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-stopwatch-outline"></i>DEVELOPMENT</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-      <div data-wow-delay="1.4s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-monitor-outline"></i>OPTIMIZATION</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-      <div data-wow-delay="1.6s" class="col-lg-3 col-sm-6 wow fadeIn">
-        <h4><i class="icon icon-big ion-ios-settings"></i>CUSTOMIZATION</h4>
-        <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Slider-->
-<section id="action-slider">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5">
-        <h3>Awesome Template</h3>
-        <p>Universal is the perfect template for your next project! It’s time to grow your business. Go make something awesome. Designed for Everyone. Let’s give your website a brand.</p><a href="https://themeforest.net/item/universal-smart-multipurpose-html5-template/17268942" class="btn btn-dark">Get it Now!</a>
-      </div>
-      <div class="col-lg-6 col-lg-offset-1">
-        <div id="carousel-light" class="carousel slide carousel-fade">
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-light" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-light" data-slide-to="1"></li>
-            <li data-target="#carousel-light" data-slide-to="2"></li>
-          </ol>
-          <div role="listbox" class="carousel-inner">
-            <div class="item active"><img src="img/misc/1.png" alt="" class="img-responsive center-block"></div>
-            <div class="item"><img src="img/misc/2.png" alt="" class="img-responsive center-block"></div>
-            <div class="item"><img src="img/misc/3.png" alt="" class="img-responsive center-block"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Subscribe Section-->
-<section id="subscribe" class="section-small bg-img5 text-center">
-  <div class="overlay-white"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
-        <h3>Datang Kemari</h3>
-        <h5>Dan Buktikan Secara Langsung Di Outlet Kami</h5>
-        <!-- MailChimp Signup Form - Replace the form action in the line below with your MailChimp embed action! For more information on how to do this please visit the Docs!-->
-        {{-- <i class="icon icon-big ion-ios-analytics-outline"></i> --}}
-        <!-- End MailChimp Signup Form--><img src="{{asset('honda-xxl.png')}}" alt="">
-      </div>
-    </div>
-  </div>
-</section>
-<!-- News Block-->
-<section id="news">
-  <div class="container">
-    <h3 class="pull-left">Latest news</h3>
-    <div class="pull-right">
-      <h5><a href="news3.html">SEE ALL</a></h5>
-    </div>
-    <div class="clearfix"></div>
-    <div class="row grid-pad">
-      @foreach($mobils as $data)
-      <div class="col-sm-4"><a href="news-single-sidebar.html"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block">
-        <h5>{{$data->nama_mobil}}</h5></a>
-        <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
-        <a class="btn btn-default" href="{{route('show.show',$data->id)}}">Read more</a>
-      </div>
-      @endforeach       
-    </div>
-  </div>
-</section>
-<!-- Portfolio-->
-<section id="portfolio" class="bg-gray no-pad-btm">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
-        <h3>Portfolio</h3>
-        <ul class="portfolio-sorting list-inline text-center">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h3>Portfolio</h3>
+        {{-- <ul class="portfolio-sorting list-inline text-center">
           <li><a href="portfolio-single.html" data-group="all" class="active">All</a></li>
           <li><a href="portfolio-single.html" data-group="photo">Photo</a></li>
           <li><a href="portfolio-single.html" data-group="design">Design</a></li>
           <li><a href="portfolio-single.html" data-group="branding">Branding</a></li>
-        </ul>
+        </ul> --}}
       </div>
     </div>
   </div>
@@ -258,10 +268,10 @@
     <div id="grid" class="row portfolio-items">
       @foreach($mobils as $data)
       <div data-groups="[&quot;design&quot;, &quot;branding&quot;]" class="col-md-3 col-sm-6 no-pad">
-        <div class="portfolio-item"><a href="portfolio-single.html"><img src="/img/{{$data->cover}}" alt="">
+        <div class="portfolio-item"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="">
           <div class="portfolio-overlay">
             <div class="caption">
-              <h5>{{$data->nama_mobil}}</h5><span>{{$data->harga}}</span>
+              <h5>{{$data->nama_mobil}}</h5><span>{{$data->modell->nama_model}}</span>
             </div>
           </div></a></div>
         </div>
@@ -277,7 +287,7 @@
         </div>
       </div>
     </section>
-    <div class="section-small action bg-gray text-center"><a href="portfolio-masonry-4.html" class="btn btn-dark-border">View All Portfolio</a></div>
+    <div class="section-small action bg-gray text-center"><a href="/portfolio" class="btn btn-dark-border">View All Portfolio</a></div>
     <!-- Team Section-->
     <section id="team" class="bg-white text-center">
       <div class="container">
@@ -337,8 +347,8 @@
             <p>Lokasi yang strategis memungkinkan anda untuk memudahkan datang ke deler kami berkat akses jalan yang mudah dan bebas kemacetan</p>
           </div>
           <div data-wow-delay=".8s" class="col-lg-3 col-sm-6 wow fadeIn">
-            <h4><i class="icon-big ion-ios-pulse"></i> Pembayaran Mudah</h4>
-            <p>Kami memberi kemudahan anda dalam melakukan pembayaran, Kami memberikan Cicilan untuk pembelian di Outlet kami</p>
+            <h4><i class="icon-big fa fa-money"></i> Pembayaran Mudah</h4>
+            <p>Kami memberi kemudahan anda dalam melakukan pembayaran, Kami memberikan Cicilan untuk pembelian di Deler kami</p>
           </div>
         </div>
       </div>
@@ -413,7 +423,7 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-sm-8 col-sm-offset-2"><a href="https://www.youtube.com/watch?v=K4DyBUG242c" class="swipebox-video"><i class="icon icon-big ion-ios-videocam-outline"></i></a>
+          <div class="col-sm-8 col-sm-offset-2"><a href="https://www.youtube.com/watch?v=0FtX0oIMIPM" class="swipebox-video"><i class="icon icon-big ion-ios-videocam-outline"></i></a>
             <h2>Tonton <span class="bold">Video</span>
             </h2>
             <p>Perjalanan perusahaan kami dari tahun... hingga sekarang, Sangat banyak pengetahuan yang kami Dapatkan.</p>
@@ -429,11 +439,11 @@
             <h3>contact us</h3>
             <p>Ingin Mengetahui Layanan Kami Lebih Lanjut? Silahkan Hubungi Call Center Kami</p>
             <hr>
-            <h5><i class="fa fa-map-marker fa-fw fa-lg"></i> 1234 Some Avenue, New York, NY 56789
+            <h5><i class="fa fa-map-marker fa-fw fa-lg"></i> Jl. Dr. Djunjunan No. 168 B Bandung 40163 - Jawa Barat - Indonesia
             </h5>
-            <h5><i class="fa fa-envelope fa-fw fa-lg"></i> info@youwebsite.com
+            <h5><i class="fa fa-envelope fa-fw fa-lg"></i> info@hondapasteur.com 
             </h5>
-            <h5><i class="fa fa-phone fa-fw fa-lg"></i> (123) 456-7890
+            <h5><i class="fa fa-phone fa-fw fa-lg"></i> [022] 2000977, 2000975 Fax. 2015 193
             </h5>
           </div>
           <div class="col-md-5 col-md-offset-2">
@@ -493,7 +503,7 @@
         <div class="row">
           <div class="col-sm-4">
             <h5>About</h5>
-            <p>Thanks for choosing Universal for your next project! Universal is a unique template for building  beautiful business website. We have a dedicated support team ready to answer your questions.</p>
+            <p>PT Honda Prospect Motor memberikan garansi pada kendaraan Honda apabila terdapat cacat material atau kesalahan dari hasil kerja pabrik, bukan akibat kesalahan pemakai atau material yang habis atau aus terpakai</p>
           </div>
           <div class="col-sm-2 col-sm-offset-1 footer-menu">
             <h5>Company</h5>

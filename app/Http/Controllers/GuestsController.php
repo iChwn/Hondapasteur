@@ -122,6 +122,21 @@ class GuestsController extends Controller
         return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin','dimensi','transmisi','skemudi','ssuspensi','rem','ban','eksterior','interior','fkeselamatan','skeamanan'));
     }
 
+    public function portfolio()
+    {
+      $mobil = Mobil::orderBy('created_at','desc')->take(1)->get();
+       $potoa = Poto::orderBy('created_at','desc')->take(1)->get();
+       $poto = Poto::orderBy('created_at','desc')->take(3)->get();
+       $mobils = Mobil::orderBy('created_at','desc')->paginate(5);
+       $leader = Leader::orderBy('created_at','asc')->paginate(5);
+       $leadera = Leader::orderBy('created_at','asc')->paginate(1);
+       $modell = Modell::all();
+       $mobile = Mobil::all();
+       $perusahaan = Perusahaan::all();
+       
+       return view('guest.portfolio')->with(compact('mobils','modell','mobil','leader','poto','potoa','mobile','perusahaan','leadera'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -156,7 +171,7 @@ class GuestsController extends Controller
        // $dek=$mobile->deskrispsi;
        $modell = Modell::all();
        $poto = Poto::orderBy('created_at','asc')->take(2)->get();
-       $potoa = Poto::orderBy('created_at','desc')->take(1)->get();
+       $potoa = Poto::where('mobil_id','=',$id)->get();
        
        $kalimat = $mobile->deskripsi;
        $sub_kalimat = substr($kalimat,0,250)."...";
