@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Poto extends Model
 {
-    protected $fillable =['mobil_id','cover','cover2','cover3'];
+    protected $fillable =['id','mobil_id','cover','cover2','cover3'];
 
 	public function mobil()
 	{

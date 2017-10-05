@@ -163,7 +163,7 @@
 															@endforeach
 														</tr>
 														<tr>
-															<td>Kapasitas Tangki</td>
+															<td>Kapasitas Tangki (Liter)</td>
 															@foreach($dimensi as $data)
 															<td>{{$data->kapasitas_tangki}}</td>
 															@endforeach
@@ -226,6 +226,12 @@
 															<td>5</td>
 															@foreach($transmisi as $data)
 															<td>{{$data->no5}}</td>
+															@endforeach
+														</tr>
+														<tr>
+															<td>6</td>
+															@foreach($transmisi as $data)
+															<td>{{$data->no6}}</td>
 															@endforeach
 														</tr>
 														<tr>
@@ -338,6 +344,12 @@
 													</tr>
 													<tr>
 														<td>Rem Depan</td>
+														@foreach($rem as $data)
+														<td>{{$data->rem_depan}}</td>
+														@endforeach
+													</tr>
+													<tr>
+														<td>Rem Belakang</td>
 														@foreach($rem as $data)
 														<td>{{$data->rem_belakang}}</td>
 														@endforeach

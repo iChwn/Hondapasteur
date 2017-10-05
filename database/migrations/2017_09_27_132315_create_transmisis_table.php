@@ -23,6 +23,7 @@ class CreateTransmisisTable extends Migration
             $table->string('no3');
             $table->string('no4');
             $table->string('no5');
+            $table->string('no6');
             $table->string('reverse');
             $table->string('final_gear');
             $table->foreign('mobil_id')->references('id')->on('mobils')

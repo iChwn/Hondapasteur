@@ -38,6 +38,7 @@ class TransmisisController extends Controller
         ->addColumn(['data' => 'no3', 'name'=>'no3','title'=>'3'])
         ->addColumn(['data' => 'no4', 'name'=>'no4','title'=>'4'])
         ->addColumn(['data' => 'no5', 'name'=>'no5','title'=>'5'])
+        ->addColumn(['data' => 'no6', 'name'=>'no6','title'=>'6'])
         ->addColumn(['data' => 'reverse', 'name'=>'reverse','title'=>'Reverse'])
         ->addColumn(['data' => 'final_gear', 'name'=>'final_gear','title'=>'Final Gear'])
         ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false,'searchable'=>false]);
@@ -70,6 +71,7 @@ class TransmisisController extends Controller
                                              'no3'=>'',
                                              'no4'=>'',
                                              'no5'=>'',
+                                             'no6'=>'',
                                              'reverse'=>'',
                                              'final_gear'=>'']);
         $transmisi = Transmisi::create($request->all());
@@ -120,6 +122,7 @@ class TransmisisController extends Controller
                                              'no3'=>'',
                                              'no4'=>'',
                                              'no5'=>'',
+                                             'no6'=>'',
                                              'reverse'=>'',
                                              'final_gear'=>'']);
         $transmisi = Transmisi::find($id);

@@ -54,6 +54,13 @@
 	{!! $errors->first('no5', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
+<div class="form-group{{ $errors->has('no6') ? ' has-error' : '' }}">
+{!! Form::label('no6', '6', ['class'=>'col-md-2 control-label']) !!}
+	<div class="col-md-4">
+	{!! Form::text('no6', null, ['class'=>'form-control', 'min'=>1]) !!}
+	{!! $errors->first('no6', '<p class="help-block">:message</p>') !!}
+	</div>
+</div>
 <div class="form-group{{ $errors->has('reverse') ? ' has-error' : '' }}">
 {!! Form::label('reverse', 'Reverse', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">

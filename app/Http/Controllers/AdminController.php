@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Modell;
 class AdminController extends Controller
 {
     /**
@@ -18,7 +18,8 @@ class AdminController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        $modell = Modell::all();
+        return view('auth.login')->with(compact('modell'));
     }
     public function error()
     {

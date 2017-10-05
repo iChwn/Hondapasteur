@@ -42,7 +42,7 @@ class GuestsController extends Controller
        $mobil = Mobil::orderBy('created_at','desc')->take(3)->get();
        $potoa = Poto::orderBy('created_at','desc')->take(1)->get();
        $poto = Poto::orderBy('created_at','desc')->take(3)->get();
-       $mobils = Mobil::orderBy('created_at','desc')->paginate(5);
+       $mobils = Mobil::orderBy('created_at','desc')->paginate(6);
        $leader = Leader::orderBy('created_at','asc')->paginate(5);
        $leadera = Leader::orderBy('created_at','asc')->paginate(1);
        $modell = Modell::all();

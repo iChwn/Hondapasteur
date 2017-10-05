@@ -39,6 +39,9 @@ class MobilsController extends Controller
             ->addColumn('cover', function($mobil){
                 return '<img src="/img/'.$mobil->cover. '" height="100px" width="200px">';
             })
+            ->addColumn('nama_mobil', function($mobil){
+              return '<u> <a href="'.route('mobils.show',$mobil->id).'">'.$mobil->nama_mobil.'</a> </u>';
+            })
             ->addColumn('action', function($mobil){
                 return view('datatable._action', [
                     'model'=> $mobil,
@@ -52,8 +55,8 @@ class MobilsController extends Controller
         ->addColumn(['data' => 'nama_mobil', 'name'=>'nama_mobil', 'title'=>'Nama Mobil'])
         ->addColumn(['data' => 'modell.nama_model', 'name'=>'modell.nama_model', 'title'=>'Nama Model'])
         ->addColumn(['data' => 'harga', 'name'=>'harga', 'title'=>'Harga'])
-        ->addColumn(['data' => 'deskripsi', 'name'=>'deskripsi', 'title'=>'Deskripsi'])
-        ->addColumn(['data' => 'spesifikasi', 'name'=>'spesifikasi', 'title'=>'Spesifikasi'])
+        // ->addColumn(['data' => 'deskripsi', 'name'=>'deskripsi', 'title'=>'Deskripsi'])
+        // ->addColumn(['data' => 'spesifikasi', 'name'=>'spesifikasi', 'title'=>'Spesifikasi'])
         ->addColumn(['data' => 'cover', 'name'=>'cover', 'title'=>'Cover'])
         ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, 'searchable'=>false]);
         return view('mobils.index')->with(compact('html','mobilsa','modell','mobila','leader','poto','potoa','mobile','perusahaan','leadera')); //guest.testingadmin
@@ -116,7 +119,17 @@ class MobilsController extends Controller
      */
     public function show($id)
     {
-        //
+        $mobil = Mobil::orderBy('created_at','desc')->take(3)->get();
+       $mobile = Mobil::where('id', $id)->first();
+       // $dek=$mobile->deskrispsi;
+       $modell = Modell::all();
+       $poto = Poto::orderBy('created_at','asc')->take(2)->get();
+       $potoa = Poto::where('mobil_id','=',$id)->get();
+       
+       $kalimat = $mobile->deskripsi;
+       $sub_kalimat = substr($kalimat,0,250)."...";
+
+       return view('mobils.show',compact ('mobil','mobile',$mobile,'dek','modell','poto','potoa','sub_kalimat'));
     }
 
     /**

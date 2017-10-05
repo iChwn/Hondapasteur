@@ -36,6 +36,15 @@
           <ul class="nav navbar-nav">
             <!-- Hidden li included to remove active class from about link when scrolled up past about section-->
             <li class="hidden"><a href="#page-top"></a></li>
+            <li class="dropdown">
+            <a>Model<i class="fa fa-chevron-down fa-fw"></i></a>
+            <ul class="dropdown-menu">
+              @foreach($modell as $data)       
+              <li>
+                <a href="{{route('showperkategori', $data->id)}}">{!! $data->nama_model !!}</a></li>
+                @endforeach
+              </ul>
+            </li>
             <li><a href="#about" class="page-scroll">About</a></li>
             <li><a href="#services" class="page-scroll">Services</a></li>
             <li><a href="#news" class="page-scroll">News</a></li>
