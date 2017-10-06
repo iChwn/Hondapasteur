@@ -17,6 +17,7 @@ class CreateMobilsTable extends Migration
             $table->increments('id');
             $table->integer('modell_id')->unsigned();
             $table->string('nama_mobil');
+            $table->string('slug');
             $table->text('deskripsi');
             $table->text('spesifikasi')->nullable();
             $table->string('cover')->nullable();

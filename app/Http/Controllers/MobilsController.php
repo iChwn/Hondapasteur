@@ -13,6 +13,8 @@ use App\Poto;
 use App\Perusahaan;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreBookRequest;
+use Illuminate\Support\Str;
+
 
 class MobilsController extends Controller
 {
@@ -26,7 +28,8 @@ class MobilsController extends Controller
         $mobila = Mobil::orderBy('created_at','desc')->take(3)->get();
        $potoa = Poto::orderBy('created_at','desc')->take(1)->get();
        $poto = Poto::orderBy('created_at','desc')->take(3)->get();
-       $mobilsa = Mobil::orderBy('created_at','desc')->paginate(5);
+       $mobilsa = Mobil::all();
+       // orderBy('created_at','desc')->paginate(5);
        $leader = Leader::orderBy('created_at','asc')->paginate(5);
        $leadera = Leader::orderBy('created_at','asc')->paginate(1);
        $modell = Modell::all();
@@ -80,33 +83,24 @@ class MobilsController extends Controller
     public function store(Request $request)
     {
         
-        $this->validate($request, [
-            'nama_mobil'=> 'required|unique:mobils,nama_mobil',
-            'modell_id' => 'required|exists:modells,id',
-            'harga'=> 'required|numeric',
-            'deskripsi' => 'required',
-            'spesifikasi' => 'required',
-            'cover'=> 'image|max:2048'
-            ]);
-        $mobil = Mobil::create($request->except('cover'));
-// isi field cover jika ada cover yang diupload
-        if ($request->hasFile('cover')) {
-// Mengambil file yang diupload
-            $uploaded_cover = $request->file('cover');
-// mengambil extension file
-            $extension = $uploaded_cover->getClientOriginalExtension();
-// membuat nama file random berikut extension
-            $filename = md5(time()) . '.' . $extension;
-// menyimpan cover ke folder public/img
-            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'img';
-            $uploaded_cover->move($destinationPath, $filename);
-// mengisi field cover di mobil dengan filename yang baru dibuat
-            $mobil->cover = $filename;
-            $mobil->save();
-        }
+        $tambah = new Mobil();
+        $tambah->nama_mobil = $request->get('nama_mobil');
+        //Judul kita jadikan slug
+        $tambah->slug = Str::slug($request->get('nama_mobil'));
+        $tambah->spesifikasi = $request->get('spesifikasi');
+        $tambah->modell_id = $request->get('modell_id');
+        $tambah->deskripsi = $request->get('deskripsi');
+        $tambah->harga = $request->get('harga');
+        // Disini proses mendapatkan judul dan memindahkan letak gambar ke folder image
+        $file       = $request->file('cover');
+        $fileName   = $file->getClientOriginalName('');
+        $request->file('cover')->move("img", $fileName);
+
+        $tambah->cover = $fileName;
+        $tambah->save();
         Session::flash("flash_notification", [
             "level"=>"success",
-            "message"=>"Berhasil menyimpan $mobil->nama_mobil"
+            "message"=>"Berhasil menyimpan $tambah->nama_mobil"
             ]);
         return redirect()->route('mobils.index');
     }

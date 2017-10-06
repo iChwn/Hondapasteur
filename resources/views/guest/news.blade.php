@@ -23,7 +23,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <p>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
+            <p>Ketahuilah kabar kabar ter up to date dari kami di Honda Pasteur</p>
             <h4>{{$mobile->nama_mobil}}</h4>
             <div id="carousel-news" class="carousel slide carousel-fade">
               <ol class="carousel-indicators indicators-inside">
@@ -34,18 +34,18 @@
               <div class="carousel-inner">
               @foreach($potoa as $data)
                 <div class="item active"><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive"></div>
-                <div class="item"><img src="/img/img2/{{$data->cover}}" alt="" class="img-responsive"></div>
-                <div class="item"><img src="/img/img3/{{$data->cover}}" alt="" class="img-responsive"></div>
+                <div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive"></div>
+                <div class="item"><img src="/img/img3/{{$data->cover3}}" alt="" class="img-responsive"></div>
               @endforeach
               </div><a href="#carousel-news" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#carousel-news" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a>
             </div>
             <blockquote class="no-pad"> <font size="40ps"> {{$mobile->nama_mobil}} </font></blockquote>
             <p>{!!$mobile->deskripsi!!}</p>
-            <blockquote></blockquote>
+            <blockquote> <h5> Honda Memberikan Pelayanan Yang Penuh Untuk Anda </h5> </blockquote>
             <p></a>
             </p>
             <ul>
-              <li>{!!$sub_kalimat!!}</li>
+              <li>{!!$mobile->spesifikasi!!}</li>
               <li></li>
               <li></li>
               <li></li>
@@ -124,9 +124,9 @@
           <div class="col-sm-12">
             <nav>
               <ul class="pager">
-                <li class="previous"><a href="portfolio-single.html" class="text-muted"><span aria-hidden="true"></span><i class="fa fa-angle-left"></i> PREVIOUS</a></li>
-                <li><a href="portfolio-masonry-4.html"><i class="fa ion-grid fa-2x"></i></a></li>
-                <li class="next"><a href="portfolio-single.html" class="text-muted">NEXT <span aria-hidden="true"></span><i class="fa fa-angle-right"></i></a></li>
+                {{-- <li class="previous"><a href="portfolio-single.html" class="text-muted"><span aria-hidden="true"></span><i class="fa fa-angle-left"></i> PREVIOUS</a></li> --}}
+                <li><a href="/portfolio"><i class="fa ion-grid fa-2x"></i></a></li>
+                {{-- <li class="next"><a href="/port" class="text-muted">NEXT <span aria-hidden="true"></span><i class="fa fa-angle-right"></i></a></li> --}}
               </ul>
             </nav>
           </div>

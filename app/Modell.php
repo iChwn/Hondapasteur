@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class Modell extends Model
 {
-	protected $fillable=['nama_model'];
+	protected $fillable=['nama_model','deskripsi'];
 
 	public function mobils()
 	{

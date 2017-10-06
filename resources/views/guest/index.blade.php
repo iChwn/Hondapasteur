@@ -493,7 +493,7 @@
             <h3 class="no-pad"><span class="bold">Honda</span> Adalah Pilihan Tepat Anda Untuk Di Masa Depan;)
             </h3>
           </div>
-          <div class="col-md-2 text-right"><a href="https://themeforest.net/item/universal-smart-multipurpose-html5-template/17268942" class="btn btn-dark">Pesan Sekarang!</a></div>
+          {{-- <div class="col-md-2 text-right"><a href="https://themeforest.net/item/universal-smart-multipurpose-html5-template/17268942" class="btn btn-dark">Pesan Sekarang!</a></div> --}}
         </div>
       </div>
     </section>

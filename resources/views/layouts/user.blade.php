@@ -45,8 +45,8 @@
                 @endforeach
               </ul>
             </li>
-            <li><a href="#about" class="page-scroll">About</a></li>
-            <li><a href="#services" class="page-scroll">Services</a></li>
+            <li><a href="{{ url('/about') }}" class="page-scroll">About</a></li>
+            <li><a href="{{ url('/service') }}" class="page-scroll">Services</a></li>
             <li><a href="#news" class="page-scroll">News</a></li>
             <li><a href="#portfolio" class="page-scroll">Works</a></li>
             <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>

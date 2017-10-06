@@ -100,7 +100,8 @@ class GuestsController extends Controller
    }
 
    public function showperkategori($id)
-    {
+    { 
+        $potoa = Poto::all();
          $filtercategori = Mobil::where('modell_id','=',$id)->get();
          $filtercategori2 = Modell::where('id','=',$id)->get();
          $mesin = Mesin::where('modell_id','=',$id)->get();
@@ -118,8 +119,9 @@ class GuestsController extends Controller
          $mobils = Mobil::orderBy('created_at','desc')->paginate(5);
          $modell = Modell::all();
          $perusahaan = Perusahaan::all();
+         $mobile = Mobil::orderBy('created_at','desc')->take(1);
         
-        return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin','dimensi','transmisi','skemudi','ssuspensi','rem','ban','eksterior','interior','fkeselamatan','skeamanan'));
+        return view('guest.model',compact('mobil','mobils','modell','filtercategori','perusahaan','filtercategori2','mesin','dimensi','transmisi','skemudi','ssuspensi','rem','ban','eksterior','interior','fkeselamatan','skeamanan','potoa','mobile'));
     }
 
     public function portfolio()
@@ -166,7 +168,7 @@ class GuestsController extends Controller
      */
     public function show($id)
     {
-       $mobil = Mobil::orderBy('created_at','desc')->take(3)->get();
+       $mobil = Mobil::orderBy('created_at','desc')->take(4)->get();
        $mobile = Mobil::where('id', $id)->first();
        // $dek=$mobile->deskrispsi;
        $modell = Modell::all();

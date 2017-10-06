@@ -7,7 +7,7 @@ use App\Modell;
 use Yajra\Datatables\Html\Builder;
 use Yajra\Datatables\Datatables;
 use Session;
-
+use Illuminate\Support\Str;
 
 class ModellsController extends Controller
 {
@@ -19,7 +19,7 @@ class ModellsController extends Controller
     public function index(Request $request, Builder $htmlBuilder)
     {
         if ($request->ajax()) {
-            $models = Modell::select(['id','nama_model']);
+            $models = Modell::select(['id','nama_model','deskripsi']);
             return Datatables::of($models)
             ->addColumn('action', function($model){
                 return view('datatable._action', [
@@ -32,6 +32,7 @@ class ModellsController extends Controller
         }
         $html = $htmlBuilder
         ->addColumn(['data' => 'nama_model', 'name'=>'nama_model', 'title'=>'Nama Model'])
+        // ->addColumn(['data' => 'deskripsi', 'name'=>'deskripsi', 'title'=>'Deskripsi'])
         ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, 
             'searchable'=>false]);
         // return $html;
@@ -57,11 +58,16 @@ class ModellsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['nama_model' => 'required|unique:modells']);
-        $model = Modell::create($request->all());
+
+         $tambah = new Modell();
+        $tambah->nama_model = $request->get('nama_model');
+        //Judul kita jadikan slug
+        $tambah->slug = Str::slug($request->get('nama_model'));
+        $tambah->deskripsi = $request->get('deskripsi');
+        $tambah->save();
         Session::flash("flash_notification", [
             "level"=>"success",
-            "message"=>"Berhasil menyimpan $model->nama_model"
+            "message"=>"Berhasil menyimpan $tambah->nama_model"
             ]);
         return redirect()->route('models.index');
     }
@@ -98,9 +104,9 @@ class ModellsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, ['nama_model' => 'required|unique:modells,nama_model,'. $id]);
+        $this->validate($request, ['nama_model' => 'required|unique:modells,nama_model,'. $id,'deskripsi'=>'']);
         $model = Modell::find($id);
-        $model->update($request->only('nama_model'));
+        $model->update($request->only('nama_model','deskripsi'));
         Session::flash("flash_notification", [
             "level"=>"success",
             "message"=>"Berhasil menyimpan $model->nama_model"

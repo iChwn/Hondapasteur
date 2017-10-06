@@ -16,6 +16,8 @@ class CreateModellsTable extends Migration
         Schema::create('modells', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_model');
+            $table->text('deskripsi');
+            $table->string('slug');
             $table->timestamps();
         });
     }

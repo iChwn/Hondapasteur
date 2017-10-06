@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mobil extends Model
 {
-	protected $fillable = ['id','modell_id','nama_mobil', 'deskripsi', 'spesifikasi','cover','harga'];
+	protected $fillable = ['id','modell_id','nama_mobil','slug', 'deskripsi', 'spesifikasi','cover','harga'];
 
 	public function modell()
 	{

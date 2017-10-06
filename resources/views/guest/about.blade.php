@@ -37,7 +37,7 @@
               
               <div role="listbox" class="carousel-inner">
 
-                @foreach($poto as $data)
+                @foreach($perusahaan as $data)
                 <br>
                 <div class="item active"><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive center-block"></div>
                 <div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive center-block"></div>

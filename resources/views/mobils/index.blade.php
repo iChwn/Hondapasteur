@@ -33,7 +33,7 @@
 									@foreach($mobilsa as $data)
 									<div class="col-sm-4"><a href="news-single-sidebar.html"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block">
 										<h5>{{$data->nama_mobil}}</h5></a>
-										<p>{!!$data->deskripsi!!}</p>
+										<p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
 										<a class="btn btn-default" href="{{route('show.show',$data->id)}}">Read more</a>
 									</div>
 									@endforeach       

@@ -29,10 +29,6 @@
 					@endforeach
 				</h3>
 			</div>
-			<div class="col-md-6 text-right">
-				<h6 class="breadcrumb"><a href="index.html">Home</a> / <a href="http://forbetterweb.com/">Components</a> / Tabs
-				</h6>
-			</div>
 		</div>
 	</div>
 </div>
@@ -53,9 +49,23 @@
 				</ul>
 				<!-- Tab panes-->
 				<div class="tab-content">
+				<div id="carousel-news" class="carousel slide carousel-fade">
+							<ol class="carousel-indicators indicators-inside">
+								<li data-target="#carousel-news" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-news" data-slide-to="1"></li>
+								<li data-target="#carousel-news" data-slide-to="2"></li>
+							</ol>
+							<div class="carousel-inner">
+								@foreach($potoa as $data)
+								<div class="item active"><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive"></div>
+								<div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive"></div>
+								<div class="item"><img src="/img/img3/{{$data->cover3}}" alt="" class="img-responsive"></div>
+								@endforeach
+							</div><a href="#carousel-news" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#carousel-news" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a>
+						</div>
 					<div id="tab1" role="tabpanel" class="tab-pane fade in active">
-						@foreach($filtercategori as $data)
-						<h3><p>{{$data->nama_mobil}}</p></h3> 
+						@foreach($filtercategori2 as $data)
+						<h3><p>{{$data->nama_model}}</p></h3>
 						<p class="no-pad">{!!$data->deskripsi!!}</p>
 						<hr width="1150px" class="no-pad">
 						<hr width="1150px" class="no-pad">
