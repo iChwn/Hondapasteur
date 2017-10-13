@@ -36,14 +36,14 @@ class PotosController extends Controller
         if ($request->ajax()) {
             $potos = Poto::select(['id','cover','cover2','cover3','mobil_id']);
             return Datatables::of($potos)
-            ->addColumn('cover', function($mobil){
-                return '<img src="/img/img1/'.$mobil->cover. '" height="100px" width="200px">';
+            ->addColumn('cover', function($poto){
+                return '<img src="/img/img1/'.$poto->cover. '" height="100px" width="200px">';
             })
-            ->addColumn('cover2', function($mobil){
-                return '<img src="/img/img2/'.$mobil->cover2. '" height="100px" width="200px">';
+            ->addColumn('cover2', function($poto){
+                return '<img src="/img/img2/'.$poto->cover2. '" height="100px" width="200px">';
             })
-            ->addColumn('cover3', function($mobil){
-                return '<img src="/img/img3/'.$mobil->cover3. '" height="100px" width="200px">';
+            ->addColumn('cover3', function($poto){
+                return '<img src="/img/img3/'.$poto->cover3. '" height="100px" width="200px">';
             })
             ->addColumn('action', function($poto){
                 return view('datatable._action', [
@@ -205,19 +205,46 @@ class PotosController extends Controller
      */
     public function destroy($id)
     {
-        $poto = Poto::find($id);
+        $poto1 = Poto::find($id);
 // hapus cover lama, jika ada
-        if ($poto->cover) {
-            $old_cover = $poto->cover;
-            $filepath = public_path() . DIRECTORY_SEPARATOR . 'img'
-            . DIRECTORY_SEPARATOR . $poto->cover;
+        if ($poto1->cover) {
+            $old_cover = $poto1->cover;
+            $filepath = public_path() . DIRECTORY_SEPARATOR . 'img/img1'
+            . DIRECTORY_SEPARATOR . $poto1->cover;
             try {
                 File::delete($filepath);
             } catch (FileNotFoundException $e) {
 // File sudah dihapus/tidak ada
             }
         }
-        $poto->delete();
+        $poto2 = Poto::find($id);
+// hapus cover lama, jika ada
+        if ($poto2->cover2) {
+            $old_cover = $poto2->cover2;
+            $filepath = public_path() . DIRECTORY_SEPARATOR . 'img/img2'
+            . DIRECTORY_SEPARATOR . $poto2->cover2;
+            try {
+                File::delete($filepath);
+            } catch (FileNotFoundException $e) {
+// File sudah dihapus/tidak ada
+            }
+        }
+        $poto3 = Poto::find($id);
+// hapus cover lama, jika ada
+        if ($poto3->cover3) {
+            $old_cover = $poto3->cover3;
+            $filepath = public_path() . DIRECTORY_SEPARATOR . 'img/img3'
+            . DIRECTORY_SEPARATOR . $poto3->cover3;
+            try {
+                File::delete($filepath);
+            } catch (FileNotFoundException $e) {
+// File sudah dihapus/tidak ada
+            }
+        }
+        $poto3->delete();
+        $poto2->delete();
+        $poto1->delete();
+
         Session::flash("flash_notification", [
             "level"=>"success",
             "message"=>"poto berhasil dihapus"

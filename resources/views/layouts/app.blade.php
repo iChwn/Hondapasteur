@@ -80,6 +80,7 @@
                               <li><a href="{{ route('potos.index') }}">Poto</a></li>
                               <li><a href="{{ route('leaders.index') }}">Leader</a></li>
                               <li><a href="{{ route('perusahaans.index') }}">Perusahaan</a></li>
+                              <li><a href="{{ route('interekss.index') }}">Inter & Eks</a></li>
                               {{--  <li><a href="{{ route('testingadmin.index') }}">Testing</a></li> --}}
                               
                               @endrole
@@ -89,8 +90,7 @@
                           <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Daftar</a></li>
+                            <li><a href="{{ url('/admin-l') }}">Login</a></li>
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

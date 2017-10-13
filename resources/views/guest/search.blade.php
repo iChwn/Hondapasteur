@@ -23,6 +23,7 @@
     </div>
   </header>
   <!-- News Block-->
+  @if($model->count()>0)
   <section id="news" class="section-small">
     <div class="container">
       <h3 class="pull-left">News</h3>
@@ -32,15 +33,24 @@
       <div class="clearfix"></div>
       <div class="row grid-pad">
         @foreach($model as $data)
-        <div class="col-sm-6 col-md-4"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block"/>
+        <div class="col-sm-6 col-md-4"><a href="{{route('show.show',$data->slug)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block"/>
          <h5>{{$data->nama_mobil}}</h5></a>
          <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
-         <a href="{{route('show.show',$data->id)}}" class="btn btn-gray btn-xs">Read more</a>
+         <a href="{{route('show.show',$data->slug)}}" class="btn btn-gray btn-xs">Read more</a>
        </div>
        @endforeach
      </div>
    </div>
  </section>
+ @endif
+ @if($model->count()<=0)
+<section id="news" class="section-small">
+    <div class="container">
+      <h3 class="pull-left">ERR 404 Data Tidak Ada</h3>
+   </div>
+ </section>
+ @endif
+
  <!-- Pagination-->
  <div class="section section-small bg-white">
   <div class="container">

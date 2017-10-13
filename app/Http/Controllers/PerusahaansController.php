@@ -56,10 +56,10 @@ class PerusahaansController extends Controller
         })->make(true);
     }
     $html = $htmlBuilder
-    ->addColumn(['data' => 'about', 'name'=>'about', 'title'=>'About'])
+    // ->addColumn(['data' => 'about', 'name'=>'about', 'title'=>'About'])
     ->addColumn(['data' => 'service', 'name'=>'service', 'title'=>'Service'])
     ->addColumn(['data' => 'dekservice', 'name'=>'dekservice', 'title'=>'Deskripsi service'])
-    ->addColumn(['data' => 'motto', 'name'=>'motto', 'title'=>'Motto'])
+    // ->addColumn(['data' => 'motto', 'name'=>'motto', 'title'=>'Motto'])
     ->addColumn(['data' => 'cover', 'name'=>'cover', 'title'=>'Cover'])
     ->addColumn(['data' => 'cover2', 'name'=>'cover2', 'title'=>'Cover 2'])
     ->addColumn(['data' => 'cover3', 'name'=>'cover3', 'title'=>'Cover 3'])

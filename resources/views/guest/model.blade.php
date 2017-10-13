@@ -49,30 +49,21 @@
 				</ul>
 				<!-- Tab panes-->
 				<div class="tab-content">
-				<div id="carousel-news" class="carousel slide carousel-fade">
-							<ol class="carousel-indicators indicators-inside">
-								<li data-target="#carousel-news" data-slide-to="0" class="active"></li>
-								<li data-target="#carousel-news" data-slide-to="1"></li>
-								<li data-target="#carousel-news" data-slide-to="2"></li>
-							</ol>
-							<div class="carousel-inner">
-								@foreach($potoa as $data)
-								<div class="item active"><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive"></div>
-								<div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive"></div>
-								<div class="item"><img src="/img/img3/{{$data->cover3}}" alt="" class="img-responsive"></div>
-								@endforeach
-							</div><a href="#carousel-news" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#carousel-news" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a>
-						</div>
 					<div id="tab1" role="tabpanel" class="tab-pane fade in active">
 						@foreach($filtercategori2 as $data)
 						<h3><p>{{$data->nama_model}}</p></h3>
 						<p class="no-pad">{!!$data->deskripsi!!}</p>
-						<hr width="1150px" class="no-pad">
-						<hr width="1150px" class="no-pad">
-						<hr width="1150px" class="no-pad">
-						<hr width="1150px" class="no-pad">
-						<hr width="1150px" class="no-pad"> 
+						<p></p> {{-- Selesaikan --}}
 						@endforeach
+						<section class="no-pad">
+							<div class="container">
+								<div class="col-md-8">
+									@foreach($poto as $data)
+									<div class="item active"><img src="/img/{{$data->cover}}" alt="" class="img-responsive"></div>
+									@endforeach
+								</div>
+							</div>
+						</section>
 					</div>
 					<div id="tab2" role="tabpanel" class="tab-pane fade">
 						<div class="container">
@@ -832,8 +823,54 @@
 					</div>
 				</div>
 			</div>
-			<div id="tab3" role="tabpanel" class="tab-pane fade">Eksterior</div>
-			<div id="tab4" role="tabpanel" class="tab-pane fade">Interior</div>
+			<div id="tab3" role="tabpanel" class="tab-pane fade">
+				<section class="no-pad">
+					<div class="container">
+						<div class="row no">
+							<div class="col-md-12">
+								<h2>Eksterior</h2>
+								@foreach($intereks as $data)
+								<img class="col-md-12" src="/img/intereks/eksterior1/{{$data->ek1}}">
+								@endforeach
+							</div>
+							<div class="col-md-12">
+								@foreach($intereks as $data)
+								<img class="col-md-12" src="/img/intereks/eksterior2/{{$data->ek2}}">
+								@endforeach
+							</div>
+							<div class="col-md-12">
+								@foreach($intereks as $data)
+								<img class="col-md-12" src="/img/intereks/eksterior3/{{$data->ek3}}">
+								@endforeach
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div id="tab4" role="tabpanel" class="tab-pane fade">
+				<section class="no-pad">
+					<div class="container">
+						<div class="row no">
+							<div class="col-md-12">
+								<h2>Interior</h2>
+								@foreach($intereks as $data)
+								<img class="col-md-12" src="/img/intereks/interior1/{{$data->in1}}">
+								@endforeach
+							</div>
+							<div class="col-md-12">
+								@foreach($intereks as $data)
+								<img class="col-md-12" src="/img/intereks/interior2/{{$data->in2}}">
+								@endforeach
+							</div>
+							<div class="col-md-12">
+								@foreach($intereks as $data)
+								<img class="col-md-12" src="/img/intereks/interior3/{{$data->in3}}">
+								@endforeach
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
 			<div id="tab5" role="tabpanel" class="tab-pane fade">
 				<table class="table">	
 					<tr>
@@ -852,6 +889,35 @@
 			</div>
 		</div>
 	</div> {{-- . number_format( $angka , 0 , ” , ‘.’ ) . “,-“; --}}
+</div>
+</div>
+</section>
+<section class="no-pad">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<div id="disqus_thread"></div>
+				<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = 'https://honpas-com-1.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
 </div>
 </div>
 </section>

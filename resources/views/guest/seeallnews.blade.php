@@ -31,11 +31,11 @@
       </div>
       <div class="clearfix"></div>
       <div class="row grid-pad">
-        @foreach($model as $data)
-        <div class="col-sm-6 col-md-4"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block"/>
+        @foreach($mobils as $data)
+        <div class="col-sm-6 col-md-4"><a href="{{route('show.show',$data->slug)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block"/>
          <h5>{{$data->nama_mobil}}</h5></a>
          <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
-         <a href="{{route('show.show',$data->id)}}" class="btn btn-gray btn-xs">Read more</a>
+         <a href="{{route('show.show',$data->slug)}}" class="btn btn-gray btn-xs">Read more</a>
        </div>
        @endforeach
      </div>
@@ -48,7 +48,7 @@
       <div class="col-lg-12 text-center">
         <nav>
           <ul class="pagination">
-            {{-- {!! str_replace('/?', '?', $mobils->render()); !!} --}}
+            {!! str_replace('/?', '?', $mobils->render()); !!}
           </ul>
         </nav>
       </div>

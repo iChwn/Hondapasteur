@@ -31,7 +31,7 @@
         <div id="grid" class="row portfolio-items">
         @foreach($mobile as $data)
           <div data-groups="[&quot;design&quot;, &quot;branding&quot;]" class="col-sm-3">
-            <div class="portfolio-item"><a href="{{route('show.show',$data->id)}}"><img src="img/{{$data->cover}}" alt="">
+            <div class="portfolio-item"><a href="{{route('show.show',$data->slug)}}"><img src="img/{{$data->cover}}" alt="">
                 <div class="portfolio-overlay">
                   <div class="caption">
                     <h5>{{$data->nama_mobil}}</h5><span>{{$data->modell->nama_model}}</span>

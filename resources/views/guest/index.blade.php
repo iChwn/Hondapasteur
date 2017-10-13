@@ -43,7 +43,7 @@
             <ul class="dropdown-menu">
               @foreach($modell as $data)       
               <li>
-                <a href="{{route('showperkategori', $data->id)}}">{!! $data->nama_model !!}</a></li>
+                <a href="{{route('showperkategori', $data->slug)}}">{!! $data->nama_model !!}</a></li>
                 @endforeach
               </ul>
             </li>
@@ -57,9 +57,10 @@
             <li class="dropdown"><a href="#" class="dropdown-toggle"><i class="fa fa-search fa-lg"></i><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <form method="post" class="search-form">
-                    <button type="submit" title="Search" class="search-button"><i class="fa fa-search fa-lg"></i></button>
-                    <input type="text" placeholder="SEARCH" class="form-control search-field">
+                  <form action="search_code" method="post" class="search-form">
+                    <button name="Submit" type="submit" title="Search" class="search-button"><i class="fa fa-search fa-lg"></i></button>
+                    <input name="search_code" type="text" placeholder="SEARCH" class="form-control search-field">
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
                   </form>
                 </li>
               </ul>
@@ -107,7 +108,6 @@
                   <div class="item"><img src="/img/img2/{{$data->cover2}}" alt="" class="img-responsive center-block"></div>
                   <div class="item"><img src="/img/img3/{{$data->cover3}}" alt="" class="img-responsive center-block"></div>
                   @endforeach
-                  <div class="item"><img src="img/misc/4.png" alt="" class="img-responsive center-block"></div> 
                 </div>
 
               </div>
@@ -187,7 +187,9 @@
         </div> 
       </div>
     </div>
-    <div><a href="/portfolio" class="btn btn-dark-border">Lihat Paket</a></div>
+    <div>
+    <a href="paket_cermat_waifu2x_photo_noise3_scale_tta_1.png" class="btn btn-dark-border swipebox">Lihat Paket</a>
+    </div>
   </section>
 
   <!-- Slider-->
@@ -235,15 +237,15 @@
     <div class="container">
       <h3 class="pull-left">Latest news</h3>
       <div class="pull-right">
-        <h5><a href="news3.html">SEE ALL</a></h5>
+        <h5><a href="/news">SEE ALL</a></h5>
       </div>
       <div class="clearfix"></div>
       <div class="row grid-pad">
         @foreach($mobils as $data)
-        <div class="col-sm-4"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block">
+        <div class="col-sm-4"><a href="{{route('show.show',$data->slug)}}"><img src="/img/{{$data->cover}}" alt="" class="img-responsive center-block">
           <h5>{{$data->nama_mobil}}</h5></a>
           <p>{!! substr($data->deskripsi,0,200)."..." !!}</p>
-          <a class="btn btn-default" href="{{route('show.show',$data->id)}}">Read more</a>
+          <a class="btn btn-default" href="{{route('show.show',$data->slug)}}">Read more</a>
         </div>
         @endforeach       
       </div>
@@ -268,7 +270,7 @@
     <div id="grid" class="row portfolio-items">
       @foreach($mobils as $data)
       <div data-groups="[&quot;design&quot;, &quot;branding&quot;]" class="col-md-3 col-sm-6 no-pad">
-        <div class="portfolio-item"><a href="{{route('show.show',$data->id)}}"><img src="/img/{{$data->cover}}" alt="">
+        <div class="portfolio-item"><a href="{{route('show.show',$data->slug)}}"><img src="/img/{{$data->cover}}" alt="">
           <div class="portfolio-overlay">
             <div class="caption">
               <h5>{{$data->nama_mobil}}</h5><span>{{$data->modell->nama_model}}</span>
@@ -450,32 +452,8 @@
             <h3>Get in Touch</h3>
             <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. For more information on how to do this please visit the Docs!-->
             <form id="contactForm" name="sentMessage" novalidate="">
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="name" class="sr-only control-label">You Name</label>
-                  <input id="name" type="text" placeholder="You Name" required="" data-validation-required-message="Please enter name" class="form-control input-lg"><span class="help-block text-danger"></span>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="email" class="sr-only control-label">You Email</label>
-                  <input id="email" type="email" placeholder="You Email" required="" data-validation-required-message="Please enter email" class="form-control input-lg"><span class="help-block text-danger"></span>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="phone" class="sr-only control-label">You Phone</label>
-                  <input id="phone" type="tel" placeholder="You Phone" required="" data-validation-required-message="Please enter phone number" class="form-control input-lg"><span class="help-block text-danger"></span>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="message" class="sr-only control-label">Message</label>
-                  <textarea id="message" rows="2" placeholder="Message" required="" data-validation-required-message="Please enter a message." aria-invalid="false" class="form-control input-lg"></textarea><span class="help-block text-danger"></span>
-                </div>
-              </div>
               <div id="success"></div>
-              <button type="submit" class="btn btn-dark">Send</button>
+              <a href="/contact" class="btn btn-dark">Booking Service, HERE!</a>
             </form>
           </div>
         </div>
@@ -503,21 +481,18 @@
         <div class="row">
           <div class="col-sm-4">
             <h5>About</h5>
-            <p>PT Honda Prospect Motor memberikan garansi pada kendaraan Honda apabila terdapat cacat material atau kesalahan dari hasil kerja pabrik, bukan akibat kesalahan pemakai atau material yang habis atau aus terpakai</p>
+            <p>Honda didirikan pada 24 September 1948 oleh Soichiro Honda. Honda merupakan produsen sepeda motor terbesar di dunia sejak 1959,dan juga produsen mesin pembakaran dalam terbesar dengan produksi lebih dari 14 juta unit tiap tahun.
+            </p>
           </div>
           <div class="col-sm-2 col-sm-offset-1 footer-menu">
             <h5>Company</h5>
             <h6 class="no-pad"><a href="{{ url('/service') }}">Our Services</a></h6>
-            <h6 class="no-pad"><a href="clients.html">Our Clients</a></h6>
             <h6 class="no-pad"><a href="contact.html">Contact Us</a></h6>
-            <h6 class="no-pad"><a href="shop.html">Shop</a></h6>
           </div>
           <div class="col-sm-2 footer-menu">
             <h5>&nbsp;</h5>
             <h6 class="no-pad"><a href="{{ url('/about') }}">About us</a></h6>
-            <h6 class="no-pad"><a href="portfolio-masonry-4.html">Portfolio</a></h6>
-            <h6 class="no-pad"><a href="team.html">Our Team</a></h6>
-            <h6 class="no-pad"><a href="register.html">Register</a></h6>
+            <h6 class="no-pad"><a href="{{ url('/portfolio') }}">Portfolio</a></h6>
           </div>
           {{-- <div class="col-sm-3 text-right">
             <h5>Total downloads</h5><span data-min="0" data-max="2785" data-delay="5" data-increment="3" class="numscroller">0</span>

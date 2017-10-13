@@ -37,6 +37,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('interiors', 'InteriorsController');
 	Route::resource('fkeselamatans', 'FkeselamatansController');
 	Route::resource('skeamanans', 'SkeamanansController');
+	Route::resource('interekss', 'IntereksController');
 });
 
 Route::resource('show','GuestsController');
@@ -45,4 +46,11 @@ Route::resource('testing', 'GuestsController@testing');
 Route::resource('about', 'GuestsController@about');
 Route::resource('service', 'GuestsController@services');
 Route::resource('portfolio', 'GuestsController@portfolio');
-Route::get('/model/<=\l{id}l/=>', array('as' => 'showperkategori', 'uses' =>'GuestsController@showperkategori'));
+Route::get('/model/{slug}', array('as' => 'showperkategori', 'uses' =>'GuestsController@showperkategori'));
+Route::get('/contact', 'Contact@showContactForm');
+Route::post('/contact', 'Contact@sendMail');
+route::resource('news','GuestsController@news');
+//Search
+route::post('search_code','GuestsController@search');
+route::post('show/search_code','GuestsController@search');
+route::post('model/search_code','GuestsController@search');

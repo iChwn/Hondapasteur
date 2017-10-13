@@ -1,10 +1,4 @@
-<div class="form-group {!! $errors->has('mobil_id') ? 'has-error' : '' !!}">
-	{!! Form::label('mobil_id', 'Nama Mobil', ['class'=>'col-md-2 control-label']) !!}
-	<div class="col-md-4">
-		{!! Form::select('mobil_id', [''=>'']+App\Mobil::pluck('nama_mobil','id')->all(), null) !!}
-		{!! $errors->first('mobil_id', '<p class="help-block">:message</p>') !!}
-	</div>
-</div>
+
 <div class="form-group {!! $errors->has('modell_id') ? 'has-error' : '' !!}">
 	{!! Form::label('modell_id', 'Nama Model', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
@@ -12,46 +6,77 @@
 		{!! $errors->first('modell_id', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('key_type') ? ' has-error' : '' }}">
-{!! Form::label('key_type', 'Key Type', ['class'=>'col-md-2 control-label']) !!}
+
+<div class="form-group{{ $errors->has('in1') ? ' has-error' : '' }}">
+	{!! Form::label('in1', 'Interior 1', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('key_type', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('key_type', '<p class="help-block">:message</p>') !!}
+		{!! Form::file('in1') !!}
+		@if (isset($intereks) && $intereks->in1)
+		<p>
+			{!! Html::image(asset('img/intereks/interior1/'.$intereks->in1), null, ['class'=>'img-rounded img-responsive']) !!}
+		</p>
+		@endif
+		{!! $errors->first('in1', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('keyless_entry') ? ' has-error' : '' }}">
-{!! Form::label('keyless_entry', 'Keyless Entry', ['class'=>'col-md-2 control-label']) !!}
+<div class="form-group{{ $errors->has('in2') ? ' has-error' : '' }}">
+	{!! Form::label('in2', 'Interior 2', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('keyless_entry', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('keyless_entry', '<p class="help-block">:message</p>') !!}
+		{!! Form::file('in2') !!}
+		@if (isset($intereks) && $intereks->in2)
+		<p>
+			{!! Html::image(asset('img/intereks/interior2/'.$intereks->in2), null, ['class'=>'img-rounded img-responsive']) !!}
+		</p>
+		@endif
+		{!! $errors->first('in2', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('immobilizer') ? ' has-error' : '' }}">
-{!! Form::label('immobilizer', 'Immobilizer', ['class'=>'col-md-2 control-label']) !!}
+<div class="form-group{{ $errors->has('in3') ? ' has-error' : '' }}">
+	{!! Form::label('in3', 'Interior 3', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('immobilizer', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('immobilizer', '<p class="help-block">:message</p>') !!}
+		{!! Form::file('in3') !!}
+		@if (isset($intereks) && $intereks->in3)
+		<p>
+			{!! Html::image(asset('img/intereks/interior3/'.$intereks->in3), null, ['class'=>'img-rounded img-responsive']) !!}
+		</p>
+		@endif
+		{!! $errors->first('in3', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('alarm_system') ? ' has-error' : '' }}">
-{!! Form::label('alarm_system', 'Alarm System', ['class'=>'col-md-2 control-label']) !!}
+<div class="form-group{{ $errors->has('ek1') ? ' has-error' : '' }}">
+	{!! Form::label('ek1', 'Eksterior 1', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('alarm_system', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('alarm_system', '<p class="help-block">:message</p>') !!}
+		{!! Form::file('ek1') !!}
+		@if (isset($intereks) && $intereks->ek1)
+		<p>
+			{!! Html::image(asset('img/intereks/eksterior1/'.$intereks->ek1), null, ['class'=>'img-rounded img-responsive']) !!}
+		</p>
+		@endif
+		{!! $errors->first('ek1', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('keyless_trunk_opener') ? ' has-error' : '' }}">
-{!! Form::label('keyless_trunk_opener', 'Keyless Trunk Opener', ['class'=>'col-md-2 control-label']) !!}
+<div class="form-group{{ $errors->has('ek2') ? ' has-error' : '' }}">
+	{!! Form::label('ek2', 'Eksterior 2', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('keyless_trunk_opener', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('keyless_trunk_opener', '<p class="help-block">:message</p>') !!}
+		{!! Form::file('ek2') !!}
+		@if (isset($intereks) && $intereks->ek2)
+		<p>
+			{!! Html::image(asset('img/intereks/eksterior2/'.$intereks->ek2), null, ['class'=>'img-rounded img-responsive']) !!}
+		</p>
+		@endif
+		{!! $errors->first('ek2', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<div class="form-group{{ $errors->has('smart_entry') ? ' has-error' : '' }}">
-{!! Form::label('smart_entry', 'Smart Entry', ['class'=>'col-md-2 control-label']) !!}
+<div class="form-group{{ $errors->has('ek3') ? ' has-error' : '' }}">
+	{!! Form::label('ek3', 'Eksterior 3', ['class'=>'col-md-2 control-label']) !!}
 	<div class="col-md-4">
-	{!! Form::text('smart_entry', null, ['class'=>'form-control', 'min'=>1]) !!}
-	{!! $errors->first('smart_entry', '<p class="help-block">:message</p>') !!}
+		{!! Form::file('ek3') !!}
+		@if (isset($intereks) && $intereks->ek3)
+		<p>
+			{!! Html::image(asset('img/intereks/eksterior3/'.$intereks->ek3), null, ['class'=>'img-rounded img-responsive']) !!}
+		</p>
+		@endif
+		{!! $errors->first('ek3', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
 <div class="form-group">

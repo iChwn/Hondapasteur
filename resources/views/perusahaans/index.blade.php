@@ -50,37 +50,37 @@
               </div>
               <div class="row">
                 <div data-wow-delay=".2s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-analytics-outline"></i> ANALITICS</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
+                  <h4><i class="icon icon-big fa fa-money"></i> Keuangan</h4>
+                  <p>Biyaya Perawatan Lebih Hemat</p>
                 </div>
                 <div data-wow-delay=".4s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-pie-outline"></i> DESIGN</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
+                  <h4><i class="icon-big ion-ios-pulse"></i> Harga</h4>
+                  <p>Bebas Kenaikan Harga</p>
                 </div>
                 <div data-wow-delay=".6s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-stopwatch-outline"></i> CONSULTING</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
+                  <h4><i class="icon icon-big ion-ios-stopwatch-outline"></i> Cicilan</h4>
+                  <p>Dapat Dicicil Bersama Kredit Mobil</p>
                 </div>
                 <div data-wow-delay=".8s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-game-controller-b-outline"></i> ADVERTISING</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
+                  <h4><i class="icon icon-big fa fa-car"></i> Kendaraan</h4>
+                  <p>Kendaraan Tetap Prima</p>
                 </div>
                 <div data-wow-delay="1s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big icon ion-ios-infinite-outline"></i>BRANDING</h4>
-                  <p>Dengan merek yang begitu dikenal.</p>
+                  <h4><i class="icon icon-big fa fa-globe"></i>Deler</h4>
+                  <p>Berlaku Di Seluruh Deler Honda Di Indonesia</p>
                 </div>
                 <div data-wow-delay="1.2s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-stopwatch-outline"></i>DEVELOPMENT</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
+                  <h4><i class="icon icon-big fa fa-crop"></i>Paket Cermat Plus+</h4>
+                  <p>Potongan Harga Jasa dan Suku Cadang unruk Perbaikan Umum*</p>
                 </div>
                 <div data-wow-delay="1.4s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-monitor-outline"></i>OPTIMIZATION</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
+                  <h4><i class="icon icon-big fa fa-refresh"></i>Paket Cermat Plus+</h4>
+                  <p>Dapat Dipindahkan ke Kendaraan Baru*</p>
                 </div>
                 <div data-wow-delay="1.6s" class="col-lg-3 col-sm-6 wow fadeIn">
-                  <h4><i class="icon icon-big ion-ios-settings"></i>CUSTOMIZATION</h4>
-                  <p>Lorem ipsum dolor sit amet. Con eleifend sem sed dictum mattis sectetur elit. Nulla convallis pul.</p>
-                </div>
+                  <h4><i class="icon icon-big fa fa-usd"></i>Paket Cermat Plus+</h4>
+                  <p>Bebas dari Biaya Perbaikan Tak Terduga</p>
+                </div> 
                 <div class="container">
                   <div class="row">
                     @foreach($perusahaan as $data)
@@ -109,7 +109,7 @@
                         <li data-target="#carousel-news" data-slide-to="3"></li>
                       </ol>
                       <div class="carousel-inner">
-                        @foreach($potoa as $data)
+                        @foreach($perusahaan as $data)
                         <div class="item active"><img src="/img/img1/{{$data->cover}}" alt="" class="img-responsive"></div>
                         <div class="item"><img src="/img/img2/{{$data->cover}}" alt="" class="img-responsive"></div>
                         <div class="item"><img src="/img/img3/{{$data->cover}}" alt="" class="img-responsive"></div>

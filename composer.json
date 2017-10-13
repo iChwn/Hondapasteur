@@ -9,7 +9,10 @@
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3.0",
         "santigarcor/laratrust": "3.0.*",
-        "yajra/laravel-datatables-oracle": "~6.0"
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "phpmailer/phpmailer": "^6.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "anhskohbo/no-captcha": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
