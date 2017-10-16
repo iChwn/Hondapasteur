@@ -8,7 +8,7 @@
           <div class="col-sm-2 col-sm-offset-1 footer-menu">
             <h5>Company</h5>
             <h6 class="no-pad"><a href="{{ url('/service') }}">Our Services</a></h6>
-            <h6 class="no-pad"><a href="contact.html">Contact Us</a></h6>
+            <h6 class="no-pad"><a href="{{ url('/contact')}}">Booking Service</a></h6>
           </div>
           <div class="col-sm-2 footer-menu">
             <h5>&nbsp;</h5>

@@ -449,7 +449,7 @@
             </h5>
           </div>
           <div class="col-md-5 col-md-offset-2">
-            <h3>Get in Touch</h3>
+            <h3>Booking Services</h3>
             <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. For more information on how to do this please visit the Docs!-->
             <form id="contactForm" name="sentMessage" novalidate="">
               <div id="success"></div>
@@ -487,7 +487,7 @@
           <div class="col-sm-2 col-sm-offset-1 footer-menu">
             <h5>Company</h5>
             <h6 class="no-pad"><a href="{{ url('/service') }}">Our Services</a></h6>
-            <h6 class="no-pad"><a href="contact.html">Contact Us</a></h6>
+            <h6 class="no-pad"><a href="{{ url('/contact')}}">Booking Service</a></h6>
           </div>
           <div class="col-sm-2 footer-menu">
             <h5>&nbsp;</h5>
@@ -504,7 +504,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <h6>Powered By <a href="http://forbetterweb.com/"> Laravel</a>
+            <h6>Powered By <a href="https://laravel.com/"> Laravel<img src="laravel-256-black.png" width="15%"></a>
             </h6>
           </div>
           <div class="col-sm-3 col-sm-offset-1">
@@ -513,10 +513,10 @@
           </div>
           <div class="col-sm-3 col-sm-offset-1 text-right">
             <ul class="list-inline">
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-twitter fa-fw fa-lg"></i></a></li>
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-facebook fa-fw fa-lg"></i></a></li>
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-google-plus fa-fw fa-lg"></i></a></li>
-              <li><a href="http://forbetterweb.com/"><i class="fa fa-linkedin fa-fw fa-lg"></i></a></li>
+              <li><a href="https://www.google.co.id/maps/place/Honda+Pasteur/@-6.8918648,107.581797,15z/data=!4m2!3m1!1s0x0:0xe09e4e96aa2767fa?sa=X&ved=0ahUKEwjP0b_ilPTWAhXGnZQKHQBgCC4Q_BIIejAK&hl=id"><i class="fa fa-map-marker fa-fw fa-lg"></i></a></li>
+              <li><a href="https://www.facebook.com/hargahondamobilbandung/?rf=407126959360728"><i class="fa fa-facebook fa-fw fa-lg"></i></a></li>
+              {{-- <li><a href="http://forbetterweb.com/"><i class="fa fa-google-plus fa-fw fa-lg"></i></a></li> --}}
+              <li><a href="https://www.instagram.com/hondapasteur/"><i class="fa fa-instagram   fa-fw fa-lg"></i></a></li>
             </ul>
           </div>
         </div>

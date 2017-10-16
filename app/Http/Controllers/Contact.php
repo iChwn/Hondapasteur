@@ -15,6 +15,14 @@ class Contact extends Controller
     }
 
     function sendMail(Request $request){
+        $this->validate($request, ['g-recaptcha-response' => 'required|captcha',
+                                    'name'=>'required',
+                                    'email'=>'required|email',
+                                    'message'=>'required',
+                                    'nomer'=>'required|numeric',
+                                    'polisi'=>'required',
+                                    'model'=>'required'
+                                             ]);
         
         $subject = "Contact dari " . $request->input('name');
         $name = $request->input('name');
